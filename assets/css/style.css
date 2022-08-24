@@ -15,6 +15,15 @@ header {
 
 
 
+/* Search Form Styles Start */
+.search {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-color: lightskyblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: relative;
+}
 
 
 
