@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+}
 
 
 /* apply styles to <header> */
@@ -6,12 +9,13 @@ header {
     background-color: bisque;
 }
 
-* {
-    box-sizing: border-box;
-}
+
+/*---- Upcoming Shows Section Styling -----*/
 
 
-/* Upcoming Shows Section Styling */
 
 
-/* Artist Music/Info Section Styling */
+
+
+
+/*---- Artist Music/Info Section Styling ----*/
