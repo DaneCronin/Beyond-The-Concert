@@ -1,7 +1,17 @@
 
+
 /* apply styles to <header> */
-header{
+header {
     padding: 20px 35px;
     background-color: bisque;
-
 }
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* Upcoming Shows Section Styling */
+
+
+/* Artist Music/Info Section Styling */
