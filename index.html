@@ -17,9 +17,9 @@
 <body>
 
   <!--This is the header section-->
-  <header class="flex fixed"> <!-- I added class of flex and fixed to try to position header so it's fixed at top of page and all other content will scroll under it, currently it's blocking the search form-->
+  <header class="sticky flex top-0  backdrop-blur-sm "> <!-- I added class of flex and fixed to try to position header so it's fixed at top of page and all other content will scroll under it, currently it's blocking the search form-->
     <h1>
-      <a href="/"><img src="./assets/images/BeyondTheConcert-watermark-Sm-Grey.png"/> </a> <!--added the logo I finally found, I think the color/size needs to be modified if we like it, or just stick with a font?-->
+      <a href="#"><img src="./assets/images/BeyondTheConcert-watermark-Sm-Grey.png" alt="Beyond The Concert Logo"/> </a> <!--added the logo I finally found, I think the color/size needs to be modified if we like it, or just stick with a font?-->
 
     </h1>
     <nav>
@@ -44,7 +44,7 @@
 
 
 <!-- This is the search form section-->
-<section class="search col-12">
+<section class="search flex mx-auto">
   <div>
     <h2>Search</h2>
     <form>
@@ -73,7 +73,7 @@
 
 
     <!-- Section Container for Returned Data with Upcoming Shows Info -->
-   <section class="upcomingshows container">
+   <section class="upcomingshows container flex mx-auto grid grid-cols-3 gap-x-2 gap-y-3 ">
 
 
     <!-- Div Container for Shows by Date-->
@@ -86,7 +86,7 @@
 
 
     <!-- Div Container for Shows by Genre-->
-    <div class="showsbygenre">
+    <div class="showsbygenre card">
       <h3 class="text-2xl font-bold">Shows by Genre:</h3>
       <div>
 
@@ -94,7 +94,7 @@
     </div>
 
     <!-- Div Container for Shows by Venue-->
-    <div class="showsbyvenue">
+    <div class="showsbyvenue card">
       <h3 class="text-2xl font-bold">Shows by Venue:</h3>
       <div>
 
@@ -105,7 +105,7 @@
   </section>
 
   <!-- Section for Returned Data with Artist's info and music? -->
-  <section class="artistinfo container">
+  <section class="artistinfo container flex mx-auto bg-black/50">
 
     <!-- Div Container for Artist's songs-->
     <div class="artistmusic">
@@ -121,7 +121,7 @@
 
   <!--Footer Section-->
   <footer>
-    <div class="contact container">
+    <div class="contact container flex mx-auto">
       <h2>Made with love by fighting Geckos🦎</h2>
     </div>
   </footer>

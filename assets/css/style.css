@@ -5,10 +5,9 @@
 
 /* apply styles to <header> */
 header {
-    width: 100%;
+    
     padding: 0 20px 10px 10px;
     background-color: bisque;
-    z-index: 9999;
 }
 
 
@@ -19,7 +18,7 @@ header {
 
 /* Search Form Styles Start */
 .search {
-    width: 100%;
+    
     font-size: 15px;
     padding: 60px;
     height: 200px;
