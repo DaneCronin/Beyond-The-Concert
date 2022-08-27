@@ -17,7 +17,7 @@
 <body>
 
   <!--This is the header section-->
-  <header class="sticky flex top-0  backdrop-blur-sm "> <!-- I added class of flex and fixed to try to position header so it's fixed at top of page and all other content will scroll under it, currently it's blocking the search form-->
+  <header class="fixed sticky flex top-0 backdrop-blur-sm "> 
     <h1>
       <a href="#"><img src="./assets/images/BeyondTheConcert-watermark-Sm-Grey.png" alt="Beyond The Concert Logo"/> </a> <!--added the logo I finally found, I think the color/size needs to be modified if we like it, or just stick with a font?-->
 
@@ -73,49 +73,56 @@
 
 
     <!-- Section Container for Returned Data with Upcoming Shows Info -->
-   <section class="upcomingshows container flex mx-auto grid grid-cols-3 gap-x-2 gap-y-3 ">
-
+   <section class="upcomingshows flex mx-auto bg-black/25">
+    <div class="container flex mx-auto grid grid-cols-3 gap-x-2 gap-y-3">
 
     <!-- Div Container for Shows by Date-->
-    <div class="showstonight card">
+    <div class="bg-black/50 rounded">
+    <div class="showstonight text-center">
       <h3 class="text-2xl font-bold">Tonight's Shows:</h3>
       <div>
 
       </div>
     </div>
+  </div>
 
 
     <!-- Div Container for Shows by Genre-->
-    <div class="showsbygenre card">
+    <div class=" bg-black/50 rounded">
+    <div class="showsbygenre text-center">
       <h3 class="text-2xl font-bold">Shows by Genre:</h3>
       <div>
 
       </div>
     </div>
+  </div>
 
     <!-- Div Container for Shows by Venue-->
-    <div class="showsbyvenue card">
+    <div class="card bg-black/50 rounded">
+    <div class="showsbyvenue text-center">
       <h3 class="text-2xl font-bold">Shows by Venue:</h3>
       <div>
 
       </div>
     </div>
-
+  </div>
 
   </section>
 
   <!-- Section for Returned Data with Artist's info and music? -->
-  <section class="artistinfo container flex mx-auto bg-black/50">
-
+  <section class="artistinfo mx-auto bg-black/50">
+    <div class="container flex justify-center ">
     <!-- Div Container for Artist's songs-->
     <div class="artistmusic">
-      <h3 class="text-2xl font-bold" >Artist's Songs:</h3>
+      <h3 class="text-2xl font-bold text-center" >Artist's Songs:</h3>
 
     </div>
 
 
+  </div>
 
 
+  </div>
   </section>
 
 
