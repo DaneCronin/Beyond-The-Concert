@@ -5,10 +5,38 @@
 
 /* apply styles to <header> */
 header {
-    z-index: 999;
-    padding: 0 20px 10px 10px;
-    background-color: bisque;
+    padding: 20px 35px;
+    background-color: rgba(0, 0, 0, 0.862);
+    display: flex;
+    justify-content: space-between;
+
 }
+header h1 {
+    font-weight: bold;
+    font-size: 36px;
+    color: white;
+    margin: 0;
+    display: inline;
+    
+}
+header a {
+    text-decoration: none;
+    color: white;
+    font-family: 🦞 ;
+    
+  }
+header nav {
+    float: right;
+    margin: 7px 0;
+}
+header nav ul li {
+    display: inline;
+  }
+header nav ul li a {
+    margin: 0 30px;
+    font-weight: lighter;
+    font-size: 22px;
+  }
 
 
 /*---- Upcoming Shows Section Styling -----*/
