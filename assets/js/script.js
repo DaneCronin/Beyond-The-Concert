@@ -39,6 +39,21 @@ var formSubmitHandler = function (event) {
     }
 
     console.log("zip code");
+
+    //Check for valid Artist search 
+    var artistSearched = artistNameSearch.value.trim().toUpperCase();
+
+    if (artistSearched) {
+        //call TicketMaster API function and LastFm API function
+        getEventInfo();
+        // Call LastFM artist info searched as well? 
+        // LastFM0();
+
+    } else {
+        alert("Please enter valid artist name");
+    }
+    
+
 };
 
 
@@ -80,6 +95,10 @@ eventName.innerHTML = "Artist: ";
 showsTonightContainerEl.append(eventName);
 
 };
+
+
+
+
 
 
 
@@ -146,6 +165,10 @@ fetch(LastFM4)
         var artistInfo = data.artist.bio.summary
         $(".artistInfoResults4").append(artistInfo)
     });
+
+
+
+
 
 
 
