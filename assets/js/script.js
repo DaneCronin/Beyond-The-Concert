@@ -7,9 +7,10 @@ var date = new Date();
 var day = date.getDate();
 var month = date.getMonth();
 var year = date.getFullYear();
+var searchFormEl = document.querySelector("#search-form"); // Variable for search form element
 var artistNameSearch = document.querySelector("#artist-name-search"); //Variable for Artist Name search input field
 var genreTypeSearch = document.querySelector("#genre-type-search"); // Variable for the type of Genre searched.
-var locationSearched = document.querySelector("#location-searched"); // Variable for Location searched.
+var postalCodeSearched = document.querySelector("#postal-searched"); // Variable for Location searched.
 var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for container to hold returned shows by genre
 var showsTonightContainerEl = document.querySelector(".showstonight"); // Variable for container to hold returned shows for tonight. 
 
@@ -20,21 +21,29 @@ var showsTonightContainerEl = document.querySelector(".showstonight"); // Variab
 var formSubmitHandler = function (event) {
     event.preventDefault();
 
-    var artist = artistNameSearch.value.trim().toUpperCase();
+    var postalCode = postalCodeSearched.value.trim();
+    
 
-    console.log("artist name");
+    console.log("zip code");
 };
 
 
 //Fetch call to TicketMaster to get Event data for dates, venues
-fetch("https://app.ticketmaster.com/discovery/v2/events.json?city=Charlotte&apikey=" + APITicketMaster)
+//var getEventInfo = function (eventInfo) {
+fetch("https://app.ticketmaster.com/discovery/v2/events.json?postalcode=" + postalCodeSearched + "&apikey=" + APITicketMaster)
 .then (ticketMaster => {
     console.log(ticketMaster);
     return ticketMaster.json()
 }) 
 .then (ticketInfo => {
     console.log(ticketInfo)
+
+
+
 });
+//};
+
+
 
 //Fetch to LastFM to get Artist info/popular songs/
 fetch("http://ws.audioscrobbler.com/2.0/?method=tag.gettopartists&tag=disco&api_key=" + APILastFm + "&format=json")
@@ -48,4 +57,4 @@ fetch("http://ws.audioscrobbler.com/2.0/?method=tag.gettopartists&tag=disco&api_
 
 
 //Add event listener for button click on search
-artistNameSearch.addEventListener("submit", formSubmitHandler);
+searchFormEl.addEventListener("submit", formSubmitHandler);
