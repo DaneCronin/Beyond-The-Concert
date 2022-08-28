@@ -22,14 +22,27 @@ var formSubmitHandler = function (event) {
     event.preventDefault();
 
     var postalCode = postalCodeSearched.value.trim();
-    
+
+      //check for valid zipCode
+      const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(postalCode);
+      console.log(isValidZip);
+
+    if (postalCode === isValidZip) {
+        console.log(isValidZip);
+
+        //call getEventInfo function
+        getEventInfo(postalCode);
+
+    } else if (postalCode != isValidZip) {
+        alert("Please enter zip code");
+    }
 
     console.log("zip code");
 };
 
 
 //Fetch call to TicketMaster to get Event data for dates, venues
-//var getEventInfo = function (eventInfo) {
+var getEventInfo = function (eventInfo) {
 fetch("https://app.ticketmaster.com/discovery/v2/events.json?postalcode=" + postalCodeSearched + "&apikey=" + APITicketMaster)
 .then (ticketMaster => {
     console.log(ticketMaster);
@@ -38,10 +51,16 @@ fetch("https://app.ticketmaster.com/discovery/v2/events.json?postalcode=" + post
 .then (ticketInfo => {
     console.log(ticketInfo)
 
+   // var eventstonight = ticketmaster.event
+
+
+// Empty Shows Tonight Container for new data
+showsTonightContainerEl.textContent = "";
+
 
 
 });
-//};
+};
 
 
 
