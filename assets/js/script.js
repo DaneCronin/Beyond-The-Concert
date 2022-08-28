@@ -15,7 +15,7 @@ var genreTypeSearch = document.querySelector("#genre-type-search"); // Variable 
 var postalCodeSearched = document.querySelector("#postal-searched"); // Variable for Location searched.
 var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for container to hold returned shows by genre
 var showsTonightContainerEl = document.querySelector(".showstonight"); // Variable for container to hold returned shows for tonight. 
-
+var artistInfoContainerEl = document.querySelector(".artistmusic"); // Variable for Div to hold returned Artist Info from LastFM API
 
 
 
@@ -28,13 +28,13 @@ var formSubmitHandler = function (event) {
       //check for valid zipCode
       const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(postalCode);
       
-    if (isValidZip === true) {
+    if (isValidZip === true || artistSearched) {
         console.log(isValidZip);
 
         //call getEventInfo function
         getEventInfo(postalCode);
 
-    } else {
+    } else if (isValidZip === null || false) {
         alert("Please enter zip code");
     }
 
@@ -43,7 +43,7 @@ var formSubmitHandler = function (event) {
     //Check for valid Artist search 
     var artistSearched = artistNameSearch.value.trim().toUpperCase();
 
-    if (artistSearched) {
+    if (artistSearched || postalCode) {
         //call TicketMaster API function and LastFm API function
         getEventInfo();
         // Call LastFM artist info searched as well? 
@@ -52,7 +52,7 @@ var formSubmitHandler = function (event) {
     } else {
         alert("Please enter valid artist name");
     }
-    
+ 
 
 };
 
