@@ -25,15 +25,14 @@ var formSubmitHandler = function (event) {
 
       //check for valid zipCode
       const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(postalCode);
-      console.log(isValidZip);
-
-    if (postalCode === isValidZip) {
+      
+    if (isValidZip === true) {
         console.log(isValidZip);
 
         //call getEventInfo function
         getEventInfo(postalCode);
 
-    } else if (postalCode != isValidZip) {
+    } else {
         alert("Please enter zip code");
     }
 
@@ -61,6 +60,25 @@ showsTonightContainerEl.textContent = "";
 
 });
 };
+
+//Display events by zip code to shows tonight 
+var displayShowsTonight = function(eventInfo){
+console.log("returned shows by zip code");
+
+//check for returned events info from TicketMaster API
+if (eventInfo.length === 0) {
+    showsTonightContainerEl.textContent = "No Shows to Display.";
+    return;
+}
+
+// Display Event/artist Name
+var eventName = document.createElement('h5');
+eventName.id = "eventname";
+eventName.innerHTML = "Artist: ";
+showsTonightContainerEl.append(eventName);
+
+};
+
 
 
 
