@@ -17,10 +17,11 @@
 <body>
 
   <!--This is the header section-->
-  <header class="fixed sticky flex top-0 backdrop-blur-sm "> 
+  <header class="fixed sticky flex top-0 backdrop-blur-sm ">
     <h1>
 
-      <a href="/"  class="text-3xl font-bold">Beyond The Concert</a>
+      <a href="/" class="text-3xl font-bold">Beyond The Concert</a>
+
 
     </h1>
     <nav>
@@ -29,17 +30,18 @@
           <a href="#upcomingshows">Shows</a>
         </li>
         <li>
-          <a href="#Search">Search</a>
+          <a href="#search-form">Search</a>
         </li>
         <li>
-          <a href="#Artist-Info">Artist Info</a>
+          <a href="#artist-info">Artist Info</a>
         </li>
         <li>
-          <a href="#Contact">Contact</a>
+          <a href="#contact">Contact</a>
         </li>
       </ul>
     </nav>
   </header>
+
 
 
 
@@ -62,74 +64,94 @@
   </div>
 </section> 
 
+  <!-- This is the search form section-->
+  <section class="search flex mx-auto" id="search-form">
+    <div>
+      <h2>Search</h2>
+      <form>
+      <!-- <label for="artist">Artist:</label>
+        <input  class ="input" type="text" placeholder="Artist" name="artist" id="artist-name-search" />
+
+        <label for="genre">Genre:</label>
+        <input class ="input" type="text" placeholder="Genre" name="genre" id="genre-type-search" />
+      -->
+        <label for="location">Location:</label>
+        <input class = "input" type="text" placeholder="Enter Zip Code" name="location" id="postal-searched" />
+        <button class="searchbtn" type="submit">Click to Search!</button>
+      </form>
+    </div>
+  </section>
 
 
 
-   
-     
-
-    
 
 
 
 
-    <!-- Section Container for Returned Data with Upcoming Shows Info -->
-   <section class="upcomingshows flex mx-auto bg-black/25">
+
+
+
+
+
+
+  <!-- Section Container for Returned Data with Upcoming Shows Info -->
+  <section class="upcomingshows flex mx-auto bg-black/25" id="upcomingshows">
     <div class="container flex mx-auto grid grid-cols-3 gap-x-2 gap-y-3">
 
-    <!-- Div Container for Shows by Date-->
-    <div class="bg-black/50 rounded">
-    <div class="showstonight text-center">
-      <h3 class="text-2xl font-bold">Tonight's Shows:</h3>
-      <div>
+      <!-- Div Container for Shows by Date-->
+      <div class="bg-black/50 rounded">
+        <div class="showstonight text-center">
+          <h3 class="text-2xl font-bold">Tonight's Shows:</h3>
+          <div>
 
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
 
-    <!-- Div Container for Shows by Genre-->
-    <div class=" bg-black/50 rounded">
-    <div class="showsbygenre text-center">
-      <h3 class="text-2xl font-bold">Shows by Genre:</h3>
-      <div>
+      <!-- Div Container for Shows by Genre-->
+      <div class=" bg-black/50 rounded">
+        <div class="showsbygenre text-center">
+          <h3 class="text-2xl font-bold">Shows by Genre:</h3>
+          <div>
 
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
-    <!-- Div Container for Shows by Venue-->
-    <div class="card bg-black/50 rounded">
-    <div class="showsbyvenue text-center">
-      <h3 class="text-2xl font-bold">Shows by Venue:</h3>
-      <div>
+      <!-- Div Container for Shows by Venue-->
+      <div class="card bg-black/50 rounded">
+        <div class="showsbyvenue text-center">
+          <h3 class="text-2xl font-bold">Shows by Venue:</h3>
+          <div>
 
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
   </section>
 
   <!-- Section for Returned Data with Artist's info and music? -->
-  <section class="artistinfo mx-auto bg-black/50">
-    <div class="container flex justify-center ">
-    <!-- Div Container for Artist's songs-->
-    <div class="artistmusic">
-      <h3 class="text-2xl font-bold text-center" >Artist's Songs:</h3>
+  <section class="artistinfo mx-auto bg-black/50" id="artist-info">
+    <div class="container flex justify-center">
+      <!-- Div Container for Artist's songs-->
+
+      <div class="artistmusic container">
+        <h3 class="text-2xl font-bold text-center">Artist's Songs:</h3>
+
+      </div>
+
 
     </div>
 
 
-  </div>
-
-
-  </div>
+    </div>
   </section>
 
 
   <!--Footer Section-->
-  <footer>
-    <div class="contact container flex mx-auto">
+  <footer class="flex mx-auto">
+    <div class="contact container flex mx-auto bg-grey/50" id="contact">
       <h2>Made with love by fighting Geckos🦎</h2>
     </div>
   </footer>
