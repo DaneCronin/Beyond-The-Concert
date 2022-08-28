@@ -3,7 +3,7 @@ var APITicketMaster = "Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5"; //TicketMaster API Key
 var APILastFm = "64ea64681b70d9776ad3714be43dc7de"; //LastFM API Key
 
 //Gloabl Variables 
-var date = new Date(data.dt * 1000);
+var date = new Date();
 var day = date.getDate();
 var month = date.getMonth();
 var year = date.getFullYear();
@@ -14,6 +14,16 @@ var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for 
 var showsTonightContainerEl = document.querySelector(".showstonight"); // Variable for container to hold returned shows for tonight. 
 
 
+
+
+// Create Click Event Handler for search form
+var formSubmitHandler = function (event) {
+    event.preventDefault();
+
+    var artist = artistNameSearch.value.trim().toUpperCase();
+
+    console.log("artist name");
+};
 
 
 //Fetch call to TicketMaster to get Event data for dates, venues
@@ -35,3 +45,7 @@ fetch("http://ws.audioscrobbler.com/2.0/?method=tag.gettopartists&tag=disco&api_
 .then (getPopularArtist => {
     console.log(getPopularArtist)
 });
+
+
+//Add event listener for button click on search
+artistNameSearch.addEventListener("submit", formSubmitHandler);
