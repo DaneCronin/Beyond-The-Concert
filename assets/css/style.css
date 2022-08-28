@@ -9,6 +9,7 @@ header {
     background-color: rgba(0, 0, 0, 0.862);
     display: flex;
     justify-content: space-between;
+
 }
 header h1 {
     font-weight: bold;
@@ -45,6 +46,7 @@ header nav ul li a {
 
 /* Search Form Styles Start */
 .search {
+    
     font-size: 15px;
     padding: 60px;
     height: 200px;

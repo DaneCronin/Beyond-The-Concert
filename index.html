@@ -17,8 +17,9 @@
 <body>
 
   <!--This is the header section-->
-  <header>
+  <header class="fixed sticky flex top-0 backdrop-blur-sm "> 
     <h1>
+
       <a href="/"  class="text-3xl font-bold">Beyond The Concert</a>
 
     </h1>
@@ -43,85 +44,92 @@
 
 
 
+<!-- This is the search form section-->
+<section class="search flex mx-auto">
+  <div>
+    <h2>Search</h2>
+    <form>
+      <label for="artist">Artist:</label>
+      <input type="text" placeholder="Artist" name="artist" id="artist" />
+     
+      <label for="genre">Genre:</label>
+      <input type="text" placeholder="Genre" name="genre" id="genre" />
+     
+      <label for="location">Location:</label>
+      <input type="text" placeholder="Location" name="location" id="location" />
+      <button class=searchbtn type="submit">Click to Search!</button>
+    </form>
+  </div>
+</section>
 
 
-  <!-- Section Container for Returned Data with Upcoming Shows Info -->
-  <section class="upcomingshows">
+
 
    
      
 
-    <!-- This is the search form section-->
-    <section class="search">
-      <div>
-        <h2>Search</h2>
-        <form>
-          <label for="artist">Artist:</label>
-          <input type="text" placeholder="Artist" name="artist" id="artist" />
-         
-          <label for="genre">Genre:</label>
-          <input type="text" placeholder="Genre" name="genre" id="genre" />
-         
-          <label for="location">Location:</label>
-          <input type="text" placeholder="Location" name="location" id="location" />
-          <button class=searchbtn type="submit">Click to Search!</button>
-        </form>
-      </div>
-    </section>
+    
 
 
 
 
     <!-- Section Container for Returned Data with Upcoming Shows Info -->
-   <section class="upcomingshows">
-
+   <section class="upcomingshows flex mx-auto bg-black/25">
+    <div class="container flex mx-auto grid grid-cols-3 gap-x-2 gap-y-3">
 
     <!-- Div Container for Shows by Date-->
-    <div class="showstonight">
+    <div class="bg-black/50 rounded">
+    <div class="showstonight text-center">
       <h3 class="text-2xl font-bold">Tonight's Shows:</h3>
       <div>
 
       </div>
     </div>
+  </div>
 
 
     <!-- Div Container for Shows by Genre-->
-    <div class="showsbygenre">
+    <div class=" bg-black/50 rounded">
+    <div class="showsbygenre text-center">
       <h3 class="text-2xl font-bold">Shows by Genre:</h3>
       <div>
 
       </div>
     </div>
+  </div>
 
     <!-- Div Container for Shows by Venue-->
-    <div class="showsbyvenue">
+    <div class="card bg-black/50 rounded">
+    <div class="showsbyvenue text-center">
       <h3 class="text-2xl font-bold">Shows by Venue:</h3>
       <div>
 
       </div>
     </div>
-
+  </div>
 
   </section>
 
   <!-- Section for Returned Data with Artist's info and music? -->
-  <section class="artistinfo">
-
+  <section class="artistinfo mx-auto bg-black/50">
+    <div class="container flex justify-center ">
     <!-- Div Container for Artist's songs-->
     <div class="artistmusic">
-      <h3 class="text-2xl font-bold" >Artist's Songs:</h3>
+      <h3 class="text-2xl font-bold text-center" >Artist's Songs:</h3>
 
     </div>
 
 
+  </div>
 
 
+  </div>
   </section>
 
 
   <!--Footer Section-->
   <footer>
-    <div class="contact">
+    <div class="contact container flex mx-auto">
       <h2>Made with love by fighting Geckos🦎</h2>
     </div>
   </footer>
