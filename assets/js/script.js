@@ -27,7 +27,12 @@ $("#inputForm").on("submit", function(e))
 
 $("#back-button").click(showMainPage);
 
-
+// Get results
+function assignResult(hitArray)
+{
+    resultsSection.empty();
+    for (var i=0; i < hitArray.length; i++)
+}
 
 //API Key Variables
 // var APITicketMaster = "Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5"; //TicketMaster API Key 
