@@ -19,7 +19,7 @@ $(document).ready()
 function search () {
     let input = document.getElementById('searchForm').value 
     input = input.toLowerCase ();
-    let x = document.getElementsByClassName('artistNamesearch')
+    let x = document.getElementsByClassName('genresearched');
 }
 
 // get value from search elements
@@ -97,26 +97,47 @@ var formSubmitHandler = function (event) {
     //check for valid genre search
 
     
+// MODAL JS
+var modal = document.getElementById('myModal');
+var btn = document.getElementById("myBtn");
+var span = document.getElementsByClassName("close")[0];
 
+
+// When the user clicks on the button, open the modal
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
     //if (genreSearched || postalCode) {
-    if (genresearched.value === "") {
-        alert("Please enter a valid genre");
-        //Save searched genres into local storage
-        savedGenres.push(genresearched);
-        localStorage.setItem("genreSearched", JSON.stringify(savedGenres));
-
-
-        //call TicketMaster API function and LastFm API function
-        getEventInfo();
-        // Call LastFM genre info searched as well? 
-        //getSimilarGenres();
-
-    } else {
-    }
- 
-
-};
+        if (genresearched.value === "") {
+            alert("Please enter a valid genre");
+            //Save searched genres into local storage
+            savedGenres.push(genresearched);
+            localStorage.setItem("genreSearched", JSON.stringify(savedGenres));
+    
+    
+            //call TicketMaster API function and LastFm API function
+            getEventInfo();
+            // Call LastFM genre info searched as well? 
+            //getSimilarGenres();
+    
+        } else {
+        }
+     
+    
+    };
 
 //check for valid artist
 // var artistNameSearch = document.getElementById("artistNamesearch").value.trim().toUpperCase();
@@ -286,21 +307,4 @@ var loadSearchedZipCode = function (postalCode) {
 //Add event listener for button click on search
 searchFormEl.addEventListener("submit", formSubmitHandler);
 
-// MODAL JS
-var modal = document.getElementById("myModal");
-var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("close")[0];
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+

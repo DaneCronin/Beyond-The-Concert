@@ -51,19 +51,25 @@ header nav ul li a {
 
 /* Search Form Styles Start */
 .search {
-
     font-size: 20px;
     padding: 60px;
     height: 200px;
     background-size: cover;
-    background-position: left;
+    background-position: center;
     background-color: lightskyblue;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     border-style: solid;
     border-width: 5px;
     border-color: black;
+    text-align: center;
+    float:inline-end;
 }
 
+.searchtext {
+    text-align: center;
+    margin:auto;
+    padding: 10px 30px 10px 30px;
+}
 .searchbtn {
     color: black;
     background-color: white;
@@ -126,3 +132,24 @@ header nav ul li a {
     text-decoration: none;
     cursor: pointer;
   }
+
+  /* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+
+  .myBtn {
+  }
+
+  /* tailwind */
+  @tailwind base;
+@tailwind components;
+@tailwind utilities;
