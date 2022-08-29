@@ -17,7 +17,7 @@ var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for 
 var showsTonightContainerEl = document.querySelector(".upcomingshows"); // Variable for container to hold returned shows for tonight. 
 var artistInfoContainerEl = document.querySelector(".artistmusic"); // Variable for Div to hold returned Artist Info from LastFM API
 var savedPostalCode = []; // Array to store history of searched Zip Codes
-var savedGenres = []; // Array to store history of searched Genres
+var savedArtists = []; // Array to store history of searched Artists
 
 
 // Create Click Event Handler for search form
@@ -46,22 +46,22 @@ var formSubmitHandler = function (event) {
     console.log("zip code");
 
     //Check for valid Artist search 
-    var artistSearched = artistNameSearch.value.trim().toUpperCase();
+    var genreSearched = genreTypeSearch.value.trim().toUpperCase();
 
-    if (artistSearched || postalCode) {
+    if (genreSearched || postalCode) {
 
         //Save searched artists into local storage
-        savedArtists.push(artistSearched);
-        localStorage.setItem("artistsSearched", JSON.stringify(savedArtists));
+        savedGenres.push(genreSearched);
+        localStorage.setItem("genreSearched", JSON.stringify(savedGenres));
 
 
         //call TicketMaster API function and LastFm API function
         getEventInfo();
-        // Call LastFM artist info searched as well? 
+        // Call LastFM genre info searched as well? 
         // LastFM0();
 
     } else {
-        alert("Please enter valid artist name");
+        alert("Please enter valid genre");
     }
  
 
@@ -70,7 +70,7 @@ var formSubmitHandler = function (event) {
 
 //Fetch call to TicketMaster to get Event data for dates, venues
 var getEventInfo = function (eventInfo) {
-fetch("https://app.ticketmaster.com/discovery/v2/events.json?postalcode=" + postalCodeSearched + "&includeSpellcheck=&apikey=" + APITicketMaster)
+fetch("https://app.ticketmaster.com/discovery/v2/events.json?&postalcode=" + postalCodeSearched + "&includeSpellcheck=&apikey=" + APITicketMaster)
 .then (ticketMaster => {
     console.log(ticketMaster);
     return ticketMaster.json()

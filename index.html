@@ -33,7 +33,7 @@
           <a href="#search-form">Search</a>
         </li>
         <li>
-          <a href="#artist-info">Artist Info</a>
+          <a href="#genre-section">You Might Like</a>
         </li>
         <li>
           <a href="#contact">Contact</a>
@@ -48,16 +48,18 @@
   <section class="search flex mx-auto mt-5" id="search-form">
     <div>
       <h2 class="font-bold text-2xl">Search</h2>
-      <form>
-       <label for="artist" class="font-bold p-2">Artist:</label>
+      <form class="container flex">
+        <div class="flex mx-auto">
+      <!-- <label for="artist" class="font-bold p-2">Artist:</label>
         <input  class ="input rounded" type="text" placeholder="Artist" name="artist" id="artist-name-search" />
-
-       <!-- <label for="genre">Genre:</label>
-        <input class ="input" type="text" placeholder="Genre" name="genre" id="genre-type-search" />
       -->
+        <label for="genre" class="font-bold p-2">Genre:</label>
+        <input class ="input rounded" type="text" placeholder="Genre" name="genre" id="genre-type-search" />
+      
         <label for="location" class="font-bold p-2">Location:</label>
         <input class = "input rounded" type="text" placeholder="Enter Zip Code" name="location" id="postal-searched" />
         <button class="searchbtn rounded bg-black" type="submit">Click to Search!</button>
+      </div>
       </form>
     </div>
   </section>
@@ -75,13 +77,13 @@
 
 
   <!-- Section Container for Returned Data with Upcoming Shows Info -->
-  <section class="upcomingshows-container flex mx-auto bg-black/25" id="upcomingshows-section">
+  <section class="upcomingshows-container flex mx-auto bg-black/25 mt-5" id="upcomingshows-section">
     <div class="container flex mx-auto grid grid-cols-3 gap-x-2 gap-y-3">
 
       <!-- Div Container for Shows by Date-->
-      <div class="bg-black/50 rounded">
+      <div class="bg-black/50 my-6">
         <div class="text-center">
-          <h3 class="text-2xl font-bold">Upcoming Shows:</h3>
+          <h3 class="text-2xl font-bold mt-3">Upcoming Shows</h3>
           <div class="upcomingshows">
            
           </div>
@@ -90,9 +92,9 @@
 
 
       <!-- Div Container for Shows by Genre-->
-      <div class=" bg-black/50 rounded">
+      <div class=" bg-black/50 my-6">
         <div class="showsbygenre text-center">
-          <h3 class="text-2xl font-bold">Shows by Genre:</h3>
+          <h3 class="text-2xl font-bold mt-3">Shows by Genre</h3>
           <div>
 
           </div>
@@ -100,11 +102,11 @@
       </div>
 
       <!-- Div Container for Featured Events-->
-      <div class="card bg-black/50 rounded">
+      <div class="card bg-black/50 my-6">
         <div class="featuredevents text-center">
-          <h3 class="text-2xl font-bold">Featured Events:</h3>
+          <h3 class="text-2xl font-bold mt-3">Featured Events</h3>
           <div class=" flex place-content-center p-3">
-            <div  w-type="event-discovery" w-tmapikey="Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5" w-googleapikey="YOUR_GOOGLE_API_KEY" w-keyword="" w-theme="simple" w-colorscheme="light" w-width="350" w-height="600" w-size="25" w-border="0" w-borderradius="4" w-radius="30" w-period="month" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_478s3" w-source="ticketmaster" w-branding="Ticketmaster" w-classificationname="music" w-latlong="34.0390107,-118.2672801"></div>
+            <div  w-type="event-discovery" w-tmapikey="Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5" w-keyword="" w-theme="simple" w-colorscheme="light" w-width="350" w-height="600" w-size="25" w-border="0" w-borderradius="4" w-radius="30" w-period="month" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_478s3" w-source="ticketmaster" w-branding="Ticketmaster" w-classificationname="music" w-latlong="34.0390107,-118.2672801"></div>
 
           </div>
         </div>
@@ -113,12 +115,12 @@
   </section>
 
   <!-- Section for Returned Data with Artist's info and music? -->
-  <section class="artistinfo mx-auto bg-black/50" id="artist-info">
+  <section class="related-genre-section mx-auto bg-black/50 mt-6" id="genre-section">
     <div class="container flex justify-center">
       <!-- Div Container for Artist's songs-->
 
-      <div class="artistmusic container">
-        <h3 class="text-2xl font-bold text-center">Artist's Songs:</h3>
+      <div class="related-genre container my-6">
+        <h3 class="text-2xl font-bold text-center">You Might Like</h3>
 
       </div>
 
@@ -131,7 +133,7 @@
 
 
   <!--Footer Section-->
-  <footer class="flex mx-auto">
+  <footer class="flex mx-auto my-6">
     <div class="contact container flex mx-auto bg-grey/50" id="contact">
       <h2>Made with love by fighting Geckos🦎</h2>
     </div>
