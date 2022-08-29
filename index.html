@@ -50,26 +50,40 @@
         <h2 class="font-bold text-2xl">Search</h2>
         <form id="searchForm" class="container-flex">
           <div class="flex mx-auto">
-          <label for="artist" class="font-bold p-2">Artist:</label>
+        <!-- editing this section out for now-
+            <label for="artist" class="font-bold p-2">Artist:</label>
           <input class="input rounded" type="text" placeholder="Artist" name="artist" id="artistNamesearch" />
-         
+        -->
           <label for="genre" class="font-bold p-2">Genre:</label>
           <input type="text" placeholder="Genre" name="genre" id="genresearched" />
-         
+         <!--editing this section out for now
           <label for="postalcode" class="font-bold p-2">Location:</label>
           <input type="text" placeholder="location" name="postalCode" id="postalCodeSearched" />
+         -->
           <button class="searchbtn" type="search" id="search-button">Click to Search!</button>
         </form>
       </div>
     </div>
       </section>
 
+<!-- Trigger/Open The Modal -->
+  <button id="myBtn"></button>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Please enter a valid genre</p>
+  </div>
+
+</div>
       
  <!-- Section Container for Returned Data with Upcoming Shows Info -->
  <section class="upcomingshows-container flex mx-auto bg-black/25 mt-3" id="upcomingshows-section">
   <div class="container flex mx-auto grid grid-cols-3 gap-x-3 gap-y-3">
 
     <!-- Div Container for Shows by Date-->
+    <section>
     <div class="card bg-white mb-6 -mt-16 p-3">
       <div class="text-center overflow-auto">
         <h3 class="text-2xl font-bold mt-3">Upcoming Shows</h3>
@@ -78,14 +92,15 @@
         </div>
       </div>
     </div>
-
+  </section>
 
     <!-- Div Container for Shows by Genre-->
+   <!-- editing this out for now 
     <div class="card bg-white mb-6 -mt-16 p-3 ">
       <div class="showsbygenre text-center overflow-auto">
         <h3 class="text-2xl font-bold mt-3">Shows by Genre</h3>
         <div>
-
+-->
         </div>
       </div>
     </div>
