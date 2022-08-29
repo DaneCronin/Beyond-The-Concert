@@ -1,3 +1,5 @@
+$(document).ready() 
+
 // $(document).ready(function) {
    // var APITicketMaster = "Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5"; //TicketMaster API Key 
    //  var APILastFm = "64ea64681b70d9776ad3714be43dc7de"; //LastFM API Key
@@ -11,31 +13,29 @@
 
 // On Click Functions
 
-$("#back-button").click(showMainPage);
 
 // Get results
-function assignResult(hitArray)
-{
-    resultsSection.empty();
-    for (var i=0; i < hitArray.length; i++)
+
+function search () {
+    let input = document.getElementById('searchForm').value 
+    input = input.toLowerCase ();
+    let x = document.getElementsByClassName('artistNamesearch')
 }
 
 // get value from search elements
-var artistNameSearch = artistNameSearch.value.trim();
+var searchForm = search.value;
 
-if (artistNameSearch) {
-    getUserRepos(artistNameSearch);
-}
+//if (artist) {
+   // getUserRepos(artistNameSearch);
+//}
 
-var genreSearch = genreSearch.value.trim();
+//if (genresearch) {
+  //  getElementById(genresearch);
+//}
 
-if (genresearch) {
-    getUserRepos(genresearch);
-}
-
-if (locationsearch) {
-    getUserRepos(locationsearch);
-}
+//if (locationsearch) {
+ //   getUserRepos(locationsearch);
+//}
 
 //API Key Variables
  var APITicketMaster = "Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5"; //TicketMaster API Key 
@@ -55,7 +55,7 @@ var postalCodeSearched = document.querySelector("#postal-searched"); // Variable
 var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for container to hold returned shows by genre
 var showsTonightContainerEl = document.querySelector(".upcomingshows"); // Variable for container to hold returned shows for tonight. 
 var relatedGenreContainerEl = document.querySelector(".related-genre"); // Variable for Div to hold returned simlilar genre tags from LastFM API
-var genreSearched = genreTypeSearch.value.trim().toUpperCase();// Variable for user input from genre search
+//var genreSearched = genreTypeSearch.value.trim().toUpperCase();// Variable for user input from genre search
 var savedPostalCode = []; // Array to store history of searched Zip Codes
 var savedGenres = []; // Array to store history of searched Artists
 
@@ -66,7 +66,8 @@ var formSubmitHandler = function (event) {
     event.preventDefault();
 
     //Variables for Postal Code value and Genre Value from user input
-    var postalCode = postalCodeSearched.value.trim();
+    //var postalCode = postalCodeSearched.value.trim();
+    var postalCode = document.getElementById("postalCodeSearched").value;
     
 
 
@@ -90,8 +91,8 @@ var formSubmitHandler = function (event) {
     console.log("zip code");
 
     //Check for valid Genre search 
-    var genreSearched = genreTypeSearch.value.trim().toUpperCase();
-
+    //var genreSearched = genreTypeSearch.value.trim().toUpperCase();
+    var genreSearched = document.getElementById("genresearched").value.trim().toUpperCase();
 
     if (genreSearched || postalCode) {
 
@@ -103,7 +104,7 @@ var formSubmitHandler = function (event) {
         //call TicketMaster API function and LastFm API function
         getEventInfo();
         // Call LastFM genre info searched as well? 
-        getSimilarGenres();
+        //getSimilarGenres();
 
     } else {
         alert("Please enter valid genre");
