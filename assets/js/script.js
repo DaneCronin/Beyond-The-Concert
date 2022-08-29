@@ -1,29 +1,15 @@
-$(document).ready(function) {
-    var APITicketMaster = "Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5"; //TicketMaster API Key 
-    var APILastFm = "64ea64681b70d9776ad3714be43dc7de"; //LastFM API Key
-    var band = [];
-    var count = 0;
+// $(document).ready(function) {
+   // var APITicketMaster = "Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5"; //TicketMaster API Key 
+   //  var APILastFm = "64ea64681b70d9776ad3714be43dc7de"; //LastFM API Key
+    // var band = [];
+   //  var count = 0;
 
-    autocomplete(document.getElementById("user-input"), history)
-    var resultsSection = $("results");
+   //  autocomplete(document.getElementById("user-input"), history)
+  //   var resultsSection = $("results");
 
-    showMainPage();
-}
+   // showMainPage();
 
 // On Click Functions
-$("#inputForm").on("submit", function(e)) 
-{
-
-    e.preventDefault();
-    var artistNameSearch = $("#artistNamesearch").val();
-    searchGenius (artistNameSearch);
-
-    var genreSearch = $("genreSearch").val();
-    searchGenius (genreSearch);
-
-    var locationSearch = $("locationSearch").val();
-    searchGenius (locationSearch);
-};
 
 $("#back-button").click(showMainPage);
 
@@ -52,10 +38,10 @@ if (locationsearch) {
 }
 
 //API Key Variables
-// var APITicketMaster = "Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5"; //TicketMaster API Key 
-// var APILastFm = "64ea64681b70d9776ad3714be43dc7de"; //LastFM API Key
-// var band = [];
-// var count = 0;
+ var APITicketMaster = "Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5"; //TicketMaster API Key 
+ var APILastFm = "64ea64681b70d9776ad3714be43dc7de"; //LastFM API Key
+ var band = [];
+var count = 0;
 
 //Global Variables 
 var date = new Date();
