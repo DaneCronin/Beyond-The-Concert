@@ -34,6 +34,23 @@ function assignResult(hitArray)
     for (var i=0; i < hitArray.length; i++)
 }
 
+// get value from search elements
+var artistNameSearch = artistNameSearch.value.trim();
+
+if (artistNameSearch) {
+    getUserRepos(artistNameSearch);
+}
+
+var genreSearch = genreSearch.value.trim();
+
+if (genresearch) {
+    getUserRepos(genresearch);
+}
+
+if (locationsearch) {
+    getUserRepos(locationsearch);
+}
+
 //API Key Variables
 // var APITicketMaster = "Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5"; //TicketMaster API Key 
 // var APILastFm = "64ea64681b70d9776ad3714be43dc7de"; //LastFM API Key
