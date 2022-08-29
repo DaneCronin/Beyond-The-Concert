@@ -10,14 +10,14 @@ var day = date.getDate();
 var month = date.getMonth();
 var year = date.getFullYear();
 var searchFormEl = document.querySelector("#search-form"); // Variable for search form element
-var artistNameSearch = document.querySelector("#artist-name-search"); //Variable for Artist Name search input field
-//var genreTypeSearch = document.querySelector("#genre-type-search"); // Variable for the type of Genre searched.
+//var artistNameSearch = document.querySelector("#artist-name-search"); //Variable for Artist Name search input field
+var genreTypeSearch = document.querySelector("#genre-type-search"); // Variable for the type of Genre searched.
 var postalCodeSearched = document.querySelector("#postal-searched"); // Variable for Location searched.
-//var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for container to hold returned shows by genre
+var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for container to hold returned shows by genre
 var showsTonightContainerEl = document.querySelector(".upcomingshows"); // Variable for container to hold returned shows for tonight. 
 var artistInfoContainerEl = document.querySelector(".artistmusic"); // Variable for Div to hold returned Artist Info from LastFM API
 var savedPostalCode = []; // Array to store history of searched Zip Codes
-var savedArtists = []; // Array to store history of searched Artists
+var savedGenres = []; // Array to store history of searched Genres
 
 
 // Create Click Event Handler for search form
