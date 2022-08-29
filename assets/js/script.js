@@ -16,15 +16,20 @@ var postalCodeSearched = document.querySelector("#postal-searched"); // Variable
 var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for container to hold returned shows by genre
 var showsTonightContainerEl = document.querySelector(".upcomingshows"); // Variable for container to hold returned shows for tonight. 
 var artistInfoContainerEl = document.querySelector(".artistmusic"); // Variable for Div to hold returned Artist Info from LastFM API
+var genreSearched = genreTypeSearch.value.trim().toUpperCase();// Variable for user input from genre search
 var savedPostalCode = []; // Array to store history of searched Zip Codes
 var savedGenres = []; // Array to store history of searched Artists
+
 
 
 // Create Click Event Handler for search form
 var formSubmitHandler = function (event) {
     event.preventDefault();
 
+    //Variables for Postal Code value and Genre Value from user input
     var postalCode = postalCodeSearched.value.trim();
+    
+
 
       //check for valid zipCode
       const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(postalCode);
@@ -45,12 +50,13 @@ var formSubmitHandler = function (event) {
 
     console.log("zip code");
 
-    //Check for valid Artist search 
+    //Check for valid Genre search 
     var genreSearched = genreTypeSearch.value.trim().toUpperCase();
+
 
     if (genreSearched || postalCode) {
 
-        //Save searched artists into local storage
+        //Save searched genres into local storage
         savedGenres.push(genreSearched);
         localStorage.setItem("genreSearched", JSON.stringify(savedGenres));
 
@@ -58,7 +64,7 @@ var formSubmitHandler = function (event) {
         //call TicketMaster API function and LastFm API function
         getEventInfo();
         // Call LastFM genre info searched as well? 
-        // LastFM0();
+        getSimilarGenres();
 
     } else {
         alert("Please enter valid genre");
@@ -78,7 +84,9 @@ fetch("https://app.ticketmaster.com/discovery/v2/events.json?&postalcode=" + pos
 .then (ticketInfo => {
     console.log(ticketInfo)
 
-   // var eventstonight = ticketmaster.event
+   
+
+
 
 
 // Empty Shows Tonight Container for new data
@@ -117,15 +125,20 @@ showsTonightContainerEl.append(eventName);
 
 
 
-//Fetch to LastFM to get Artist info/popular songs/
-fetch("http://ws.audioscrobbler.com/2.0/?method=tag.gettopartists&tag=disco&api_key=" + APILastFm + "&format=json")
-.then (getLastFM  => {
-    console.log(getLastFM);
-    return getLastFM.json();
+//Fetch to LastFM to get similar genres 
+var getSimilarGenres = function (getSimilar) {
+fetch("http://ws.audioscrobbler.com/2.0/?method=tag.getsimilar&tag=" + genreSearched + "&api_key=" + APILastFm + "&format=json")
+.then (getSimilar  => {
+    console.log(getSimilar);
+    return getSimilar.json();
 })
-.then (getPopularArtist => {
-    console.log(getPopularArtist)
+.then (getSimilar => {
+    console.log(getSimilar)
 });
+
+
+};
+
 
 
 let LastFM0 = 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=' + band[0] + '&api_key=78661b1408a61c6f77a83efc09f78da4&format=json'
@@ -179,6 +192,7 @@ fetch(LastFM4)
         var artistInfo = data.artist.bio.summary
         $(".artistInfoResults4").append(artistInfo)
     });
+
 
 
 
