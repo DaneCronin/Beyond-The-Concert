@@ -102,7 +102,7 @@ if (eventInfo.length === 0) {
 // Display Event/artist Name
 var eventName = document.createElement('h5');
 eventName.id = "eventname";
-eventName.innerHTML = "Artist: ";
+eventName.innerHTML = "Shows: ";
 showsTonightContainerEl.append(eventName);
 
 
