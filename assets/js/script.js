@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-var APIKeyBandsintown = "184f3c88-05d8-4d25-82d1-ba4db6cc27db"; //API Key for BandsinTown
-
-// variables for search button
-var searchBtn = document.querySelector("search-button");
-
-// variables for shows tonight
-var showsTonight = document.querySelector("#shows-tonight")
-
-// variables for genre
-
-// variables for location
-=======
 //API Key Variables
 var APITicketMaster = "Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5"; //TicketMaster API Key 
 var APILastFm = "64ea64681b70d9776ad3714be43dc7de"; //LastFM API Key
@@ -222,5 +209,4 @@ var loadSearchedZipCode = function (postalCode) {
 
 //Add event listener for button click on search
 searchFormEl.addEventListener("submit", formSubmitHandler);
->>>>>>> main
 
