@@ -49,14 +49,13 @@ header nav ul li a {
 /* Search Form Styles Start */
 .search {
     
-    font-size: 15px;
-    padding: 60px;
+    font-size: 18px;
+    padding: 30px;
     height: 200px;
     background-size: cover;
     background-position: left;
     background-color: lightskyblue;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    position: relative;
     border-style: solid;
     border-width: 5px;
     border-color: black;
@@ -65,9 +64,6 @@ header nav ul li a {
 .searchbtn {
     color: white;
     background-color: white;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
     padding: 10px 20px;
     font-size: 15px;
     border: none;

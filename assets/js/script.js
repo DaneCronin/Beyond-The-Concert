@@ -70,7 +70,7 @@ var formSubmitHandler = function (event) {
 
 //Fetch call to TicketMaster to get Event data for dates, venues
 var getEventInfo = function (eventInfo) {
-fetch("https://app.ticketmaster.com/discovery/v2/events.json?postalcode=" + postalCodeSearched + "&includeSpellcheck=&apikey=" + APITicketMaster)
+fetch("https://app.ticketmaster.com/discovery/v2/events.json?&postalcode=" + postalCodeSearched + "&includeSpellcheck=&apikey=" + APITicketMaster)
 .then (ticketMaster => {
     console.log(ticketMaster);
     return ticketMaster.json()
