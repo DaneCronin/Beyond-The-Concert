@@ -70,6 +70,14 @@ header nav ul li a {
     border-color: black;
     padding: 10px 20px;
     font-size: 15px;
+    border: none;
+    margin: 0 10px;
+}
+
+.searchbtn:hover {
+    color: rgb(205, 228, 245);
+    background-color: rgb(119, 119, 119);
+    border: none;
 }
 
 .input {
