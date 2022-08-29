@@ -92,12 +92,18 @@ var formSubmitHandler = function (event) {
 
     //Check for valid Genre search 
     //var genreSearched = genreTypeSearch.value.trim().toUpperCase();
-    var genreSearched = document.getElementById("genresearched").value.trim().toUpperCase();
+    //var genreSearched = document.getElementById("genresearched").value.trim().toUpperCase();
 
-    if (genreSearched || postalCode) {
+    //check for valid genre search
 
+    
+
+
+    //if (genreSearched || postalCode) {
+    if (genresearched.value === "") {
+        alert("Please enter a valid genre");
         //Save searched genres into local storage
-        savedGenres.push(genreSearched);
+        savedGenres.push(genresearched);
         localStorage.setItem("genreSearched", JSON.stringify(savedGenres));
 
 
@@ -107,7 +113,6 @@ var formSubmitHandler = function (event) {
         //getSimilarGenres();
 
     } else {
-        alert("Please enter valid genre");
     }
  
 
