@@ -17,7 +17,7 @@ var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for 
 var showsTonightContainerEl = document.querySelector(".upcomingshows"); // Variable for container to hold returned shows for tonight. 
 var artistInfoContainerEl = document.querySelector(".artistmusic"); // Variable for Div to hold returned Artist Info from LastFM API
 var savedPostalCode = []; // Array to store history of searched Zip Codes
-var savedArtists = []; // Array to store history of searched Artists
+var savedGenres = []; // Array to store history of searched Artists
 
 
 // Create Click Event Handler for search form
