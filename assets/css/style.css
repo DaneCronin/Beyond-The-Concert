@@ -17,7 +17,7 @@ header {
 
 /* Search Form Styles Start */
 .search {
-    font-size: 15px;
+    font-size: 20px;
     padding: 60px;
     height: 200px;
     background-size: cover;
@@ -37,7 +37,7 @@ header {
     border-width: 1px;
     border-color: black;
     padding: 10px 20px;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 
