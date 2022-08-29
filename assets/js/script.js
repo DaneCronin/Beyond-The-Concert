@@ -51,7 +51,7 @@ var month = date.getMonth();
 var year = date.getFullYear();
 var searchFormEl = document.querySelector("#search-form"); // Variable for search form element
 //var artistNameSearch = document.querySelector("#artist-name-search"); //Variable for Artist Name search input field
-var genreTypeSearch = document.querySelector("#genre-type-search"); // Variable for the type of Genre searched.
+var genreTypeSearch = document.querySelector("#genresearched"); // Variable for the type of Genre searched.
 var postalCodeSearched = document.querySelector("#postal-searched"); // Variable for Location searched.
 var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for container to hold returned shows by genre
 var showsTonightContainerEl = document.querySelector(".upcomingshows"); // Variable for container to hold returned shows for tonight. 
@@ -67,9 +67,9 @@ var formSubmitHandler = function (event) {
     event.preventDefault();
 
     //Variables for Postal Code value and Genre Value from user input
-    //var postalCode = postalCodeSearched.value.trim();
-    var postalCode = document.getElementById("postalCodeSearched").value;
-    
+   // var postalCode = postalCodeSearched.value.trim();
+     postalCode = document.getElementById("postalCodeSearched").value;
+     genreSearched = genreTypeSearch.value.trim().toUpperCase();
 
 
       //check for valid zipCode
@@ -92,7 +92,7 @@ var formSubmitHandler = function (event) {
     console.log("zip code");
 
     //Check for valid Genre search 
-    //var genreSearched = genreTypeSearch.value.trim().toUpperCase();
+    var genreSearched = genreTypeSearch.value.trim().toUpperCase();
     var genreSearched = document.getElementById("genresearched").value.trim().toUpperCase();
 
     if (genreSearched || postalCode) {
@@ -105,7 +105,7 @@ var formSubmitHandler = function (event) {
         //call TicketMaster API function and LastFm API function
         getEventInfo();
         // Call LastFM genre info searched as well? 
-        //getSimilarGenres();
+        getSimilarGenres();
 
     } else {
         alert("Please enter valid genre");
@@ -117,7 +117,7 @@ var formSubmitHandler = function (event) {
 
 //Fetch call to TicketMaster to get Event data for dates, venues
 var getEventInfo = function (eventInfo) {
-fetch("https://app.ticketmaster.com/discovery/v2/events.json?&postalcode=" + postalCodeSearched + "&includeSpellcheck=&apikey=" + APITicketMaster)
+fetch("https://app.ticketmaster.com/discovery/v2/events.json?postalcode=" + postalCode + "&classificationName=music&apikey=" + APITicketMaster)
 .then (ticketMaster => {
     console.log(ticketMaster);
     return ticketMaster.json()
