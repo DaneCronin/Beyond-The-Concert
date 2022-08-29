@@ -5,9 +5,40 @@
 
 /* apply styles to <header> */
 header {
+
     padding: 20px 35px;
-    background-color: bisque;
+    background-color: rgba(0, 0, 0, 0.862);
+    display: flex;
+    justify-content: space-between;
+    z-index: 999;
 }
+
+header h1 {
+    font-weight: bold;
+    font-size: 36px;
+    color: white;
+    margin: 0;
+    display: inline;
+    
+}
+header a {
+    text-decoration: none;
+    color: white;
+    font-family: 🦞 ;
+    
+  }
+header nav {
+    float: right;
+    margin: 7px 0;
+}
+header nav ul li {
+    display: inline;
+  }
+header nav ul li a {
+    margin: 0 20px;
+    font-weight: lighter;
+    font-size: 18px;
+  }
 
 
 /*---- Upcoming Shows Section Styling -----*/
@@ -17,6 +48,7 @@ header {
 
 /* Search Form Styles Start */
 .search {
+
     font-size: 20px;
     padding: 60px;
     height: 200px;
@@ -24,7 +56,6 @@ header {
     background-position: left;
     background-color: lightskyblue;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    position: relative;
     border-style: solid;
     border-width: 5px;
     border-color: black;
@@ -33,11 +64,22 @@ header {
 .searchbtn {
     color: black;
     background-color: white;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
     padding: 10px 20px;
+
     font-size: 20px;
+    border: none;
+    margin: 0 10px;
+}
+
+.searchbtn:hover {
+    color: rgb(205, 228, 245);
+    background-color: rgb(119, 119, 119);
+    border: none;
+}
+
+.input {
+    padding: 5px;
+
 }
 
 
