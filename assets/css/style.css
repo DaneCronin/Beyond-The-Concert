@@ -43,14 +43,17 @@ header nav ul li a {
 
 /*---- Upcoming Shows Section Styling -----*/
 
-
+.upcomingshows-container {
+    padding: 60px;
+    margin: 10px 0px 10px 5px;
+}
 
 
 /* Search Form Styles Start */
 .search {
-    
-    font-size: 18px;
-    padding: 30px;
+
+    font-size: 20px;
+    padding: 60px;
     height: 200px;
     background-size: cover;
     background-position: left;
@@ -62,10 +65,11 @@ header nav ul li a {
 }
 
 .searchbtn {
-    color: white;
+    color: black;
     background-color: white;
     padding: 10px 20px;
-    font-size: 15px;
+
+    font-size: 20px;
     border: none;
     margin: 0 10px;
 }
