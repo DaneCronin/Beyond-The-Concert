@@ -67,38 +67,54 @@ var formSubmitHandler = function (event) {
     event.preventDefault();
 
     //Variables for Postal Code value and Genre Value from user input
+
    // var postalCode = postalCodeSearched.value.trim();
      postalCode = document.getElementById("postalCodeSearched").value;
      genreSearched = genreTypeSearch.value.trim().toUpperCase();
 
+    //var postalCode = postalCodeSearched.value.trim();
+   // var postalCode = document.getElementById("postalCodeSearched").value;
+    
+
+
 
       //check for valid zipCode
-      const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(postalCode);
+      // const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(postalCode);
       
-    if (isValidZip === true) {
-        console.log(isValidZip);
+    //if (isValidZip === true) {
+       // console.log(isValidZip);
           //Save searched zip codes into local storage
-          savedPostalCode.push(postalCode);
-          localStorage.setItem("postalcodeSearch", JSON.stringify(savedPostalCode));
+         // savedPostalCode.push(postalCode);
+         // localStorage.setItem("postalcodeSearch", JSON.stringify(savedPostalCode));
 
         //call getEventInfo function
-        getEventInfo(postalCode);
-        postalCode.value = "";
+       // getEventInfo(postalCode);
+      //  postalCode.value = "";
 
-    } else if (isValidZip === false || null) {
-        alert("Please enter zip code");
-    }
+   // } else if (isValidZip === false || null) {
+       // alert("Please enter zip code");
+  //  }
 
-    console.log("zip code");
+    console.log("postalCode");
 
     //Check for valid Genre search 
-    var genreSearched = genreTypeSearch.value.trim().toUpperCase();
+
     var genreSearched = document.getElementById("genresearched").value.trim().toUpperCase();
 
-    if (genreSearched || postalCode) {
+    //var genreSearched = genreTypeSearch.value.trim().toUpperCase();
+    //var genreSearched = document.getElementById("genresearched").value.trim().toUpperCase();
 
+    //check for valid genre search
+
+    
+
+
+
+    //if (genreSearched || postalCode) {
+    if (genresearched.value === "") {
+        alert("Please enter a valid genre");
         //Save searched genres into local storage
-        savedGenres.push(genreSearched);
+        savedGenres.push(genresearched);
         localStorage.setItem("genreSearched", JSON.stringify(savedGenres));
 
 
@@ -108,11 +124,13 @@ var formSubmitHandler = function (event) {
         getSimilarGenres();
 
     } else {
-        alert("Please enter valid genre");
     }
  
 
 };
+
+//check for valid artist
+// var artistNameSearch = document.getElementById("artistNamesearch").value.trim().toUpperCase();
 
 
 //Fetch call to TicketMaster to get Event data for dates, venues
@@ -132,7 +150,7 @@ fetch("https://app.ticketmaster.com/discovery/v2/events.json?postalcode=" + post
 
 // Empty Shows Tonight Container for new data
 showsTonightContainerEl.textContent = "";
-genreContainerEl.textContent = "";
+//genreContainerEl.textContent = "";
 
 
 });
@@ -148,17 +166,17 @@ if (eventInfo.length === 0) {
     return;
 }
 
-// Display Event/artist Name
-var eventName = document.createElement('div');
-eventName.id = "eventname";
-eventName.innerHTML = "Upcoming Shows ";
-showsTonightContainerEl.append(eventName);
+// // Display Event/artist Name
+// var eventName = document.createElement('div');
+// eventName.id = "eventname";
+// eventName.innerHTML = "Upcoming Shows ";
+// showsTonightContainerEl.append(eventName);
 
-// Display shows searched by genre
-var eventsGenre = document.createElement('div');
-eventsGenre.id = "eventsGenre";
-eventsGenre.innerHTML = "Shows by Genre";
-genreContainerEl.append(eventsGenre);
+// // Display shows searched by genre
+// var eventsGenre = document.createElement('div');
+// eventsGenre.id = "eventsGenre";
+// eventsGenre.innerHTML = "Shows by Genre";
+// genreContainerEl.append(eventsGenre);
 
 
 
@@ -186,11 +204,11 @@ fetch("http://ws.audioscrobbler.com/2.0/?method=tag.getsimilar&tag=" + genreSear
 relatedGenreContainerEl.textContent = "";
 
 
-// Display related info by genre
-var relatedGenre = document.createElement('div');
-relatedGenre.id = "relatedGenre";
-relatedGenre.innerHTML = "Similar results by Genre";
-relatedGenreContainerEl.append(eventsGenre);
+// // Display related info by genre
+// var relatedGenre = document.createElement('div');
+// relatedGenre.id = "relatedGenre";
+// relatedGenre.innerHTML = "Similar results by Genre";
+// relatedGenreContainerEl.append(eventsGenre);
 
 };
 
@@ -279,3 +297,21 @@ var loadSearchedZipCode = function (postalCode) {
 //Add event listener for button click on search
 searchFormEl.addEventListener("submit", formSubmitHandler);
 
+// MODAL JS
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("myBtn");
+var span = document.getElementsByClassName("close")[0];
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
