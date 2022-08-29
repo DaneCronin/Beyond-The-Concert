@@ -11,10 +11,10 @@ var month = date.getMonth();
 var year = date.getFullYear();
 var searchFormEl = document.querySelector("#search-form"); // Variable for search form element
 var artistNameSearch = document.querySelector("#artist-name-search"); //Variable for Artist Name search input field
-var genreTypeSearch = document.querySelector("#genre-type-search"); // Variable for the type of Genre searched.
+//var genreTypeSearch = document.querySelector("#genre-type-search"); // Variable for the type of Genre searched.
 var postalCodeSearched = document.querySelector("#postal-searched"); // Variable for Location searched.
-var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for container to hold returned shows by genre
-var showsTonightContainerEl = document.querySelector(".showstonight"); // Variable for container to hold returned shows for tonight. 
+//var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for container to hold returned shows by genre
+var showsTonightContainerEl = document.querySelector(".upcomingshows"); // Variable for container to hold returned shows for tonight. 
 var artistInfoContainerEl = document.querySelector(".artistmusic"); // Variable for Div to hold returned Artist Info from LastFM API
 var savedPostalCode = []; // Array to store history of searched Zip Codes
 var savedArtists = []; // Array to store history of searched Artists
@@ -29,7 +29,7 @@ var formSubmitHandler = function (event) {
       //check for valid zipCode
       const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(postalCode);
       
-    if (isValidZip === true || artistSearched) {
+    if (isValidZip === true) {
         console.log(isValidZip);
           //Save searched zip codes into local storage
           savedPostalCode.push(postalCode);
@@ -39,7 +39,7 @@ var formSubmitHandler = function (event) {
         getEventInfo(postalCode);
         postalCode.value = "";
 
-    } else if (isValidZip === null || false) {
+    } else if (isValidZip === false || null) {
         alert("Please enter zip code");
     }
 
@@ -70,7 +70,7 @@ var formSubmitHandler = function (event) {
 
 //Fetch call to TicketMaster to get Event data for dates, venues
 var getEventInfo = function (eventInfo) {
-fetch("https://app.ticketmaster.com/discovery/v2/events.json?postalcode=" + postalCodeSearched + "&apikey=" + APITicketMaster)
+fetch("https://app.ticketmaster.com/discovery/v2/events.json?postalcode=" + postalCodeSearched + "&includeSpellcheck=&apikey=" + APITicketMaster)
 .then (ticketMaster => {
     console.log(ticketMaster);
     return ticketMaster.json()
@@ -90,7 +90,7 @@ showsTonightContainerEl.textContent = "";
 };
 
 //Display events by zip code to shows tonight 
-var displayShowsTonight = function(eventInfo){
+var displayUpcomingShows = function(eventInfo){
 console.log("returned shows by zip code");
 
 //check for returned events info from TicketMaster API
@@ -104,6 +104,9 @@ var eventName = document.createElement('h5');
 eventName.id = "eventname";
 eventName.innerHTML = "Artist: ";
 showsTonightContainerEl.append(eventName);
+
+
+
 
 };
 

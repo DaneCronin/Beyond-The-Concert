@@ -27,7 +27,7 @@
     <nav>
       <ul>
         <li>
-          <a href="#upcomingshows">Shows</a>
+          <a href="#upcomingshows-section">Shows</a>
         </li>
         <li>
           <a href="#search-form">Search</a>
@@ -75,15 +75,15 @@
 
 
   <!-- Section Container for Returned Data with Upcoming Shows Info -->
-  <section class="upcomingshows flex mx-auto bg-black/25" id="upcomingshows">
+  <section class="upcomingshows-container flex mx-auto bg-black/25" id="upcomingshows-section">
     <div class="container flex mx-auto grid grid-cols-3 gap-x-2 gap-y-3">
 
       <!-- Div Container for Shows by Date-->
       <div class="bg-black/50 rounded">
-        <div class="showstonight text-center">
-          <h3 class="text-2xl font-bold">Tonight's Shows:</h3>
-          <div>
-
+        <div class="text-center">
+          <h3 class="text-2xl font-bold">Upcoming Shows:</h3>
+          <div class="upcomingshows">
+           
           </div>
         </div>
       </div>
@@ -99,11 +99,12 @@
         </div>
       </div>
 
-      <!-- Div Container for Shows by Venue-->
+      <!-- Div Container for Featured Events-->
       <div class="card bg-black/50 rounded">
-        <div class="showsbyvenue text-center">
-          <h3 class="text-2xl font-bold">Shows by Venue:</h3>
-          <div>
+        <div class="featuredevents text-center">
+          <h3 class="text-2xl font-bold">Featured Events:</h3>
+          <div class=" flex place-content-center p-3">
+            <div  w-type="event-discovery" w-tmapikey="Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5" w-googleapikey="YOUR_GOOGLE_API_KEY" w-keyword="" w-theme="simple" w-colorscheme="light" w-width="350" w-height="600" w-size="25" w-border="0" w-borderradius="4" w-radius="30" w-period="month" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_478s3" w-source="ticketmaster" w-branding="Ticketmaster" w-classificationname="music" w-latlong="34.0390107,-118.2672801"></div>
 
           </div>
         </div>
@@ -139,7 +140,7 @@
 
 
   <!--Link to JavaScript -->
-
+  <script src="https://ticketmaster-api-staging.github.io/products-and-docs/widgets/event-discovery/1.0.0/lib/main-widget.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
  <script src="./assets/js/script.js"></script>
