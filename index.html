@@ -17,24 +17,26 @@
 <body>
 
   <!--This is the header section-->
-  <header>
+  <header class="fixed sticky flex top-0 backdrop-blur-sm ">
     <h1>
-      <a href="/"  class="text-3xl font-bold underline">Beyond The Concert</a>
+
+      <a href="/" class="text-3xl font-bold">Beyond The Concert</a>
+
 
     </h1>
-    <nav>
+    <nav class ="flex overflow-auto">
       <ul>
         <li>
-          <a href="#upcomingshows">Shows</a>
+          <a href="#upcomingshows-section">Shows</a>
         </li>
         <li>
-          <a href="#Search">Search</a>
+          <a href="#search-form">Search</a>
         </li>
         <li>
-          <a href="#Artist-Info">Artist Info</a>
+          <a href="#genre-section">You Might Like</a>
         </li>
         <li>
-          <a href="#Contact">Contact</a>
+          <a href="#contact">Contact</a>
         </li>
       </ul>
     </nav>
@@ -42,108 +44,124 @@
 
 
 
+  <!-- This is the search form section-->
+  <section class="search flex overflow-auto mt-3" id="search-form">
+    <div>
+      <h2 class="font-bold text-2xl">Search</h2>
+      <form class="container flex">
+        <div class="flex mx-auto">
+      <!-- <label for="artist" class="font-bold p-2">Artist:</label>
+        <input  class ="input rounded" type="text" placeholder="Artist" name="artist" id="artist-name-search" />
+      -->
+        <label for="genre" class="font-bold p-2">Genre:</label>
+        <input class ="input rounded" type="text" placeholder="Genre" name="genre" id="genre-type-search" />
+      
+        <label for="location" class="font-bold p-2">Location:</label>
+        <input class = "input rounded" type="text" placeholder="Enter Zip Code" name="location" id="postal-searched" />
+        <button class="searchbtn rounded bg-black" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="submit">Click to Search!</button>
+      </div>
+      </form>
+    </div>
+  </section>
+
+  <!--Modal for user-input alerts-->
+
+<div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+  id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog relative w-auto pointer-events-none">
+    <div
+      class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+      <div
+        class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+        <h5 class="text-xl font-medium leading-normal text-gray-800" id="exampleModalLabel">
+          Modal title
+        </h5>
+        <button type="button"
+          class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+          data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body relative p-4">
+        ...
+      </div>
+      <div
+        class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
+        <button type="button"
+          class="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+          data-bs-dismiss="modal">Close</button>
+        <button type="button"
+          class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End of  Modal -->
+
+
+
 
 
 
   <!-- Section Container for Returned Data with Upcoming Shows Info -->
-  <section class="upcomingshows">
+  <section class="upcomingshows-container flex mx-auto bg-black/25 mt-3" id="upcomingshows-section">
+    <div class="container flex mx-auto grid grid-cols-3 gap-x-3 gap-y-3">
 
-    <!--This is the header section-->
-    <header>
-        <h1>
-            <a href="/">Beyond The Concert</a>
-      
-          </h1>
-          <nav>
-            <ul>
-                <li>
-                  <a href="#Shows">Shows</a>
-                </li>
-                <li>
-                  <a href="#Search">Search</a>
-                </li>
-                <li>
-                  <a href="#Artist-Info">Artist Info</a>
-                </li>
-                <li>
-                  <a href="#Contact">Contact</a>
-                </li>
-              </ul>
-          </nav>
-    </header>
-     
-
-    <!-- This is the search form section-->
-    <section class="search">
-      <div>
-        <h2>Search</h2>
-        <form>
-          <label for="artist">Artist:</label>
-          <input type="text" placeholder="Artist" name="artist" id="artist" />
-         
-          <label for="genre">Genre:</label>
-          <input type="text" placeholder="Genre" name="genre" id="genre" />
-         
-          <label for="location">Location:</label>
-          <input type="text" placeholder="Location" name="location" id="location" />
-          <button class=searchbtn type="submit">Click to Search!</button>
-        </form>
+      <!-- Div Container for Shows by Date-->
+      <div class="card bg-white mb-6 -mt-16 p-3">
+        <div class="text-center overflow-auto">
+          <h3 class="text-2xl font-bold mt-3">Upcoming Shows</h3>
+          <div class="upcomingshows">
+           
+          </div>
+        </div>
       </div>
-    </section>
 
 
+      <!-- Div Container for Shows by Genre-->
+      <div class="card bg-white mb-6 -mt-16 p-3 ">
+        <div class="showsbygenre text-center overflow-auto">
+          <h3 class="text-2xl font-bold mt-3">Shows by Genre</h3>
+          <div>
 
-
-    <!-- Section Container for Returned Data with Upcoming Shows Info -->
-   <section class="upcomingshows">
-
-
-    <!-- Div Container for Shows by Date-->
-    <div class="showstonight">
-      <h3 class="text-2xl font-bold">Tonight's Shows:</h3>
-      <div>
-
+          </div>
+        </div>
       </div>
-    </div>
 
+      <!-- Div Container for Featured Events-->
+      <div class="card bg-white mb-6 -mt-16 p-3 ">
+        <div class="featuredevents text-center overflow-auto">
+          <h3 class="text-2xl font-bold mt-3">Featured Events</h3>
+          <div class=" flex place-content-center p-2">
+            <div  w-type="event-discovery" w-tmapikey="Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5" w-keyword="" w-theme="simple" w-colorscheme="light" w-width="300" w-height="600" w-size="25" w-border="0" w-borderradius="4" w-radius="30" w-period="month" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_478s3" w-source="ticketmaster" w-branding="Ticketmaster" w-classificationname="music" w-latlong="34.0390107,-118.2672801"></div>
 
-    <!-- Div Container for Shows by Genre-->
-    <div class="showsbygenre">
-      <h3 class="text-2xl font-bold">Shows by Genre:</h3>
-      <div>
-
+          </div>
+        </div>
       </div>
-    </div>
-
-    <!-- Div Container for Shows by Venue-->
-    <div class="showsbyvenue">
-      <h3 class="text-2xl font-bold">Shows by Venue:</h3>
-      <div>
-
-      </div>
-    </div>
-
 
   </section>
 
   <!-- Section for Returned Data with Artist's info and music? -->
-  <section class="artistinfo">
+  <section class="related-genre-section mx-auto bg-black/50 mt-6" id="genre-section">
+    <div class="container flex justify-center overflow-auto">
+      <!-- Div Container for Artist's songs-->
 
-    <!-- Div Container for Artist's songs-->
-    <div class="artistmusic">
-      <h3 class="text-2xl font-bold" >Artist's Songs:</h3>
+      <div class="related-genre container my-6">
+        <h3 class="text-2xl font-bold text-center mx-auto">You Might Like</h3>
+
+      </div>
+
 
     </div>
 
 
-
-
+    </div>
   </section>
 
 
   <!--Footer Section-->
-  <footer>
-    <div class="contact">
+  <footer class="flex mx-auto my-6">
+    <div class="contact container flex mx-auto bg-grey/50" id="contact">
       <h2>Made with love by fighting Geckos🦎</h2>
     </div>
   </footer>
@@ -151,8 +169,13 @@
 
 
   <!--Link to JavaScript -->
-  <script src="./assets/js/script.js"></script>
+  <script src="https://ticketmaster-api-staging.github.io/products-and-docs/widgets/event-discovery/1.0.0/lib/main-widget.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+ <script src="./assets/js/script.js"></script>
 
+
+  
 </body>
 
 </html>
