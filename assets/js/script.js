@@ -67,28 +67,28 @@ var formSubmitHandler = function (event) {
 
     //Variables for Postal Code value and Genre Value from user input
     //var postalCode = postalCodeSearched.value.trim();
-    var postalCode = document.getElementById("postalCodeSearched").value;
+   // var postalCode = document.getElementById("postalCodeSearched").value;
     
 
 
       //check for valid zipCode
-      const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(postalCode);
+      // const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(postalCode);
       
-    if (isValidZip === true) {
-        console.log(isValidZip);
+    //if (isValidZip === true) {
+       // console.log(isValidZip);
           //Save searched zip codes into local storage
-          savedPostalCode.push(postalCode);
-          localStorage.setItem("postalcodeSearch", JSON.stringify(savedPostalCode));
+         // savedPostalCode.push(postalCode);
+         // localStorage.setItem("postalcodeSearch", JSON.stringify(savedPostalCode));
 
         //call getEventInfo function
-        getEventInfo(postalCode);
-        postalCode.value = "";
+       // getEventInfo(postalCode);
+      //  postalCode.value = "";
 
-    } else if (isValidZip === false || null) {
-        alert("Please enter zip code");
-    }
+   // } else if (isValidZip === false || null) {
+       // alert("Please enter zip code");
+  //  }
 
-    console.log("zip code");
+    console.log("postalCode");
 
     //Check for valid Genre search 
     //var genreSearched = genreTypeSearch.value.trim().toUpperCase();
@@ -112,6 +112,9 @@ var formSubmitHandler = function (event) {
  
 
 };
+
+//check for valid artist
+// var artistNameSearch = document.getElementById("artistNamesearch").value.trim().toUpperCase();
 
 
 //Fetch call to TicketMaster to get Event data for dates, venues
