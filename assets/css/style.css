@@ -43,7 +43,10 @@ header nav ul li a {
 
 /*---- Upcoming Shows Section Styling -----*/
 
-
+.upcomingshows-container {
+    padding: 60px;
+    margin: 10px 0px 10px 5px;
+}
 
 
 /* Search Form Styles Start */
@@ -62,7 +65,7 @@ header nav ul li a {
 }
 
 .searchbtn {
-    color: white;
+    color: black;
     background-color: white;
     padding: 10px 20px;
 
