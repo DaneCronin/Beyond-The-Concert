@@ -147,14 +147,24 @@ var formSubmitHandler = function (event) {
 // ****** Fetch call to TicketMaster Rapid API to get Event data for dates, venues *****//
 
 var getEventInfo = function (eventInfo) {
-fetch("http://ws.audioscrobbler.com/2.0/?method=tag.getsimilar&tag=" + genreSearched + "&tag.getinfo&tag=" + genreSearched + "&api_key=" + APILastFm + "&format=json")
-.then (eventInfo  => {
-    console.log(eventInfo);
-    return eventInfo.json();
-})
-.then (eventInfo => {
-    console.log(eventInfo)
-});
+    const encodedParams = new URLSearchParams();
+    encodedParams.append("apiKey", "<REQUIRED>");
+    
+    const options = {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/x-www-form-urlencoded',
+            'X-RapidAPI-Key': '167cf18937msh0de257d271840fbp18e791jsndfda729eda53',
+            'X-RapidAPI-Host': 'Ticketmasterstefan-skliarovV1.p.rapidapi.com'
+        },
+        body: encodedParams
+    };
+    
+    fetch('https://ticketmasterstefan-skliarovv1.p.rapidapi.com/createEvents', options)
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err));
+
 };
 
 // // Empty You Might Like Container for new data
@@ -183,20 +193,11 @@ fetch("http://ws.audioscrobbler.com/2.0/?method=tag.getsimilar&tag=" + genreSear
             }
         };
         
-        fetch('https://genius.p.rapidapi.com/search?q=Kendrick%20Lamar', options)
+        fetch('https://genius.p.rapidapi.com/search?q=' + genreTypeSearch, options)
             .then(response => response.json())
             .then(response => console.log(response))
             .catch(err => console.error(err));
         
-        
-        
-    // var apiURL = ("https://genius.p.rapidapi.com/artists/16775/songs", options);
-    // fetch(apiURL, options)
-    // console.log(apiURL)
-	// .then(response => response.json())
-    // .then(response => console.log(response))
-    // .catch(err => console.error(err))
-
 
 
 
