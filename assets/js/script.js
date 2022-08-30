@@ -1,6 +1,7 @@
 $(document).ready() 
 
 var APIGenius = "13b920321cmshfcc89781b090ab3p1ad43bjsnebb5eaf338d3"; //Genius/Rapid API Key
+var TicketMasterAPI = "Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5"; //API for TicketMaster
 
 
 //Global Variables 
@@ -12,17 +13,13 @@ var searchFormEl = document.querySelector("#search-form"); // Variable for searc
 //var artistNameSearch = document.querySelector("#artist-name-search"); //Variable for Artist Name search input field
 // var artistNameSearch = document.getElementById("artistNamesearch").value.trim().toUpperCase();
 var genreTypeSearch = document.querySelector("#genresearched"); // Variable for the type of Genre searched.
-//var postalCodeSearched = document.querySelector("#postal-searched"); // Variable for Location searched.
-var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for container to hold returned shows by genre
-var showsTonightContainerEl = document.querySelector(".upcomingshows"); // Variable for container to hold returned shows for tonight. 
-var relatedGenreContainerEl = document.querySelector(".related-genre"); // Variable for Div to hold returned simlilar genre tags from LastFM API
-//var genreSearched = genreTypeSearch.value.trim().toUpperCase();// Variable for user input from genre search
-var savedPostalCode = []; // Array to store history of searched Zip Codes
+var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for container to hold returned shows by genre 
+var topFiveContainerEl = document.querySelector(".top-Five"); // Variable for Div to hold returned top five songs from Shazam API
 var savedGenres = []; // Array to store history of searched Artists
 
 
 
-// On Click Functions
+//**** On Click Functions ****//
 //Modal Functions
 const openEls = document.querySelectorAll("[data-open]");
 const closeEls = document.querySelectorAll("[data-close]");
@@ -70,68 +67,29 @@ var searchForm = search.value;
 
 
 
-// Create Click Event Handler for search form
+// **** Create Click Event Handler for search form ****//
 var formSubmitHandler = function (event) {
     
     if (!genreTypeSearch.value) {
         return;
     }
+  
 
     event.preventDefault();
    
     var search = genreTypeSearch.value.trim();
 
-    //Variables for Postal Code value and Genre Value from user input
-     //postalCode = postalCodeSearched.value.trim();
-     
+      //Save searched genre into local storage
+        savedGenres.push(search);
+        localStorage.setItem("genresSearch", JSON.stringify(savedGenres));
+ 
 
 
     console.log(search);
     getGenre(search);
+    getTopFive(search);
 
     genreTypeSearch.value = "";
-
-
-      //check for valid zipCode
-       //const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(postalCode);
-      
-    //if (isValidZip === true) {
-       // console.log(isValidZip);
-          //Save searched zip codes into local storage
-       //  savedPostalCode.push(postalCode);
-       //  localStorage.setItem("postalcodeSearch", JSON.stringify(savedPostalCode));
-
-        
-       //getEventInfo(postalCode);
-      // postalCode.value = "";
-
-   //} else if (isValidZip === false || null) {
-//        alert("Please enter zip code");
-//    }
-
-    //console.log("postalCode");
-
-    // var genreSearched = document.getElementById("genresearched").value.trim().toUpperCase();
-
-    // var genreSearched = genreTypeSearch.value.trim().toUpperCase();
-    // var genreSearched = document.getElementById("genresearched").value.trim().toUpperCase();
-
-       // if (genreSearched || postalCode) {
-    // if (genreSearched.value === "") {
-    //     alert("Please enter a valid genre");
-    //     //Save searched genres into local storage
-    //     savedGenres.push(genresearched);
-    //     localStorage.setItem("genreSearched", JSON.stringify(savedGenres));
-
-
-    //     //call TicketMaster API function and LastFm API function
-    //     getEventInfo();
-    //     // Call LastFM genre info searched as well? 
-    //     getSimilarGenres();
-
-    // } else {
-    // }
-
 
    
 };
@@ -143,31 +101,41 @@ var formSubmitHandler = function (event) {
 
 
 
+// ****** Fetch call to Shazam Rapid API to get top Five songs in US *****//
 
-// ****** Fetch call to TicketMaster Rapid API to get Event data for dates, venues *****//
+var getTopFive = function (topFive) {
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '167cf18937msh0de257d271840fbp18e791jsndfda729eda53',
+            'X-RapidAPI-Host': 'shazam-song-recognizer.p.rapidapi.com'
+        }
+    };
+    
+    fetch('https://shazam-song-recognizer.p.rapidapi.com/top_country_tracks?country_code=US&limit=5&start_from=0', options)
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err));
+        console.log("artist top 5");
 
-var getEventInfo = function (eventInfo) {
-fetch("http://ws.audioscrobbler.com/2.0/?method=tag.getsimilar&tag=" + genreSearched + "&tag.getinfo&tag=" + genreSearched + "&api_key=" + APILastFm + "&format=json")
-.then (eventInfo  => {
-    console.log(eventInfo);
-    return eventInfo.json();
-})
-.then (eventInfo => {
-    console.log(eventInfo)
-});
+
+         // Empty Top Five Container for new data
+ topFiveContainerEl.textContent = "";
+
+
+ // Display Top Five Songs in US
+var topFiveUS = document.createElement('div');
+topFiveUS.id = "topFiveUS";
+topFiveUS.innerHTML = "Similar results by Genre";
+topFiveContainerEl.append(topFiveUS);
+
 };
 
-// // Empty You Might Like Container for new data
-// relatedGenreContainerEl.textContent = "";
 
 
-// // // Display related info by genre
-// // var relatedGenre = document.createElement('div');
-// // relatedGenre.id = "relatedGenre";
-// // relatedGenre.innerHTML = "Similar results by Genre";
-// // relatedGenreContainerEl.append(eventsGenre);
 
-// };
+
+
 
 
 //***** API CALL TO GENIUS API ******//
@@ -183,36 +151,22 @@ fetch("http://ws.audioscrobbler.com/2.0/?method=tag.getsimilar&tag=" + genreSear
             }
         };
         
-        fetch('https://genius.p.rapidapi.com/search?q=Kendrick%20Lamar', options)
+        fetch('https://genius.p.rapidapi.com/search?q=' + search, options)
             .then(response => response.json())
             .then(response => console.log(response))
             .catch(err => console.error(err));
         
-        
-        
-    // var apiURL = ("https://genius.p.rapidapi.com/artists/16775/songs", options);
-    // fetch(apiURL, options)
-    // console.log(apiURL)
-	// .then(response => response.json())
-    // .then(response => console.log(response))
-    // .catch(err => console.error(err))
 
-
-
-
-
-
-// Empty Shows Tonight Container for new data
-showsTonightContainerEl.textContent = "";
-//genreContainerEl.textContent = "";
 
     }
 
+    // Empty Shows Tonight Container for new data
+    //genreContainerEl.textContent = "";
 
 
-//Display events by zip code to shows tonight 
-var displayUpcomingShows = function(eventInfo){
-console.log("returned shows by zip code");
+    //Display events by zip code to shows tonight 
+    var displayUpcomingShows = function(eventInfo){
+    console.log("returned shows by zip code");
 
 //check for returned events info from TicketMaster API
 if (eventInfo.length === 0) {
