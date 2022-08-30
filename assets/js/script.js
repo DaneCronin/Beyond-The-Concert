@@ -10,6 +10,7 @@ var month = date.getMonth();
 var year = date.getFullYear();
 var searchFormEl = document.querySelector("#search-form"); // Variable for search form element
 //var artistNameSearch = document.querySelector("#artist-name-search"); //Variable for Artist Name search input field
+// var artistNameSearch = document.getElementById("artistNamesearch").value.trim().toUpperCase();
 var genreTypeSearch = document.querySelector("#genresearched"); // Variable for the type of Genre searched.
 //var postalCodeSearched = document.querySelector("#postal-searched"); // Variable for Location searched.
 var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for container to hold returned shows by genre
@@ -82,7 +83,7 @@ var formSubmitHandler = function (event) {
 
     //Variables for Postal Code value and Genre Value from user input
      //postalCode = postalCodeSearched.value.trim();
-     //genreSearched = genreTypeSearch.value.trim().toUpperCase();
+     
 
 
     console.log(search);
@@ -183,20 +184,20 @@ window.onclick = function(event) {
     
     // };
 
-//check for valid artist
-// var artistNameSearch = document.getElementById("artistNamesearch").value.trim().toUpperCase();
 
 
-//Fetch call to TicketMaster to get Event data for dates, venues
 
-var getSimilarGenres = function (getSimilar) {
+
+// ****** Fetch call to TicketMaster Rapid API to get Event data for dates, venues *****//
+
+var getEventInfo = function (eventInfo) {
 fetch("http://ws.audioscrobbler.com/2.0/?method=tag.getsimilar&tag=" + genreSearched + "&tag.getinfo&tag=" + genreSearched + "&api_key=" + APILastFm + "&format=json")
-.then (getSimilar  => {
-    console.log(getSimilar);
-    return getSimilar.json();
+.then (eventInfo  => {
+    console.log(eventInfo);
+    return eventInfo.json();
 })
-.then (getSimilar => {
-    console.log(getSimilar)
+.then (eventInfo => {
+    console.log(eventInfo)
 });
 };
 
@@ -213,8 +214,10 @@ fetch("http://ws.audioscrobbler.com/2.0/?method=tag.getsimilar&tag=" + genreSear
 // };
 
 
+//***** API CALL TO GENIUS API ******//
+
 //var getEventInfo = function (eventInfo) {
-    function getEventInfo(search) {
+    function getGenre(search) {
 
 
         const options = {
@@ -283,7 +286,7 @@ if (eventInfo.length === 0) {
 
 
 
-    //load zipcodes and artists searched to localStorage 
+    // **** Local Storage -load zipcodes and artists searched to localStorage **** //
 
 var loadSearchedZipCode = function (postalCode) {
     searchArray = JSON.parse(localStorage.getItem("postalcodeSearch"));
@@ -297,6 +300,7 @@ var loadSearchedZipCode = function (postalCode) {
 
     }
 };
+
 
 
 // MODAL JS
