@@ -1,6 +1,7 @@
 $(document).ready() 
 
 var APIGenius = "13b920321cmshfcc89781b090ab3p1ad43bjsnebb5eaf338d3"; //Genius/Rapid API Key
+var TicketMasterAPI = "Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5"; //API for TicketMaster
 
 
 //Global Variables 
@@ -22,7 +23,7 @@ var savedGenres = []; // Array to store history of searched Artists
 
 
 
-// On Click Functions
+//**** On Click Functions ****//
 //Modal Functions
 const openEls = document.querySelectorAll("[data-open]");
 const closeEls = document.querySelectorAll("[data-close]");
@@ -70,24 +71,27 @@ var searchForm = search.value;
 
 
 
-// Create Click Event Handler for search form
+// **** Create Click Event Handler for search form ****//
 var formSubmitHandler = function (event) {
     
     if (!genreTypeSearch.value) {
         return;
     }
+  
 
     event.preventDefault();
    
     var search = genreTypeSearch.value.trim();
 
-    //Variables for Postal Code value and Genre Value from user input
-     //postalCode = postalCodeSearched.value.trim();
-     
+      //Save searched genre into local storage
+        savedGenres.push(search);
+        localStorage.setItem("genresSearch", JSON.stringify(savedGenres));
+ 
 
 
     console.log(search);
     getGenre(search);
+    getEventInfo(search);
 
     genreTypeSearch.value = "";
 
@@ -97,10 +101,7 @@ var formSubmitHandler = function (event) {
       
     //if (isValidZip === true) {
        // console.log(isValidZip);
-          //Save searched zip codes into local storage
-       //  savedPostalCode.push(postalCode);
-       //  localStorage.setItem("postalcodeSearch", JSON.stringify(savedPostalCode));
-
+        
         
        //getEventInfo(postalCode);
       // postalCode.value = "";
@@ -109,34 +110,9 @@ var formSubmitHandler = function (event) {
 //        alert("Please enter zip code");
 //    }
 
-    //console.log("postalCode");
-
-    // var genreSearched = document.getElementById("genresearched").value.trim().toUpperCase();
-
-    // var genreSearched = genreTypeSearch.value.trim().toUpperCase();
-    // var genreSearched = document.getElementById("genresearched").value.trim().toUpperCase();
-
-       // if (genreSearched || postalCode) {
-    // if (genreSearched.value === "") {
-    //     alert("Please enter a valid genre");
-    //     //Save searched genres into local storage
-    //     savedGenres.push(genresearched);
-    //     localStorage.setItem("genreSearched", JSON.stringify(savedGenres));
-
-
-    //     //call TicketMaster API function and LastFm API function
-    //     getEventInfo();
-    //     // Call LastFM genre info searched as well? 
-    //     getSimilarGenres();
-
-    // } else {
-    // }
-
-
    
 };
     
-
 
 
 
@@ -149,6 +125,7 @@ var formSubmitHandler = function (event) {
 var getEventInfo = function (eventInfo) {
     const encodedParams = new URLSearchParams();
     encodedParams.append("apiKey", "<REQUIRED>");
+    encodedParams.append("classificationName", search);
     
     const options = {
         method: 'POST',
@@ -160,12 +137,16 @@ var getEventInfo = function (eventInfo) {
         body: encodedParams
     };
     
-    fetch('https://ticketmasterstefan-skliarovv1.p.rapidapi.com/createEvents', options)
+    fetch('https://ticketmasterstefan-skliarovv1.p.rapidapi.com/searchEvents=' + search, options)
         .then(response => response.json())
         .then(response => console.log(response))
         .catch(err => console.error(err));
 
+        console.log("event");
+
 };
+
+
 
 // // Empty You Might Like Container for new data
 // relatedGenreContainerEl.textContent = "";
@@ -193,7 +174,7 @@ var getEventInfo = function (eventInfo) {
             }
         };
         
-        fetch('https://genius.p.rapidapi.com/search?q=' + genreTypeSearch, options)
+        fetch('https://genius.p.rapidapi.com/search?q=' + search, options)
             .then(response => response.json())
             .then(response => console.log(response))
             .catch(err => console.error(err));
