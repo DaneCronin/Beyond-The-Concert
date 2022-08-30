@@ -1,19 +1,25 @@
 $(document).ready() 
 
+var APIGenius = "13b920321cmshfcc89781b090ab3p1ad43bjsnebb5eaf338d3"; //Genius/Rapid API Key
 
 
-//API Key Variables
-=======
-// $(document).ready(function) {
-   var APITicketMaster = "Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5"; //TicketMaster API Key 
-     var APILastFm = "64ea64681b70d9776ad3714be43dc7de"; //LastFM API Key
-     var band = [];
-     var count = 0;
+//Global Variables 
+var date = new Date();
+var day = date.getDate();
+var month = date.getMonth();
+var year = date.getFullYear();
+var searchFormEl = document.querySelector("#search-form"); // Variable for search form element
+//var artistNameSearch = document.querySelector("#artist-name-search"); //Variable for Artist Name search input field
+var genreTypeSearch = document.querySelector("#genresearched"); // Variable for the type of Genre searched.
+//var postalCodeSearched = document.querySelector("#postal-searched"); // Variable for Location searched.
+var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for container to hold returned shows by genre
+var showsTonightContainerEl = document.querySelector(".upcomingshows"); // Variable for container to hold returned shows for tonight. 
+var relatedGenreContainerEl = document.querySelector(".related-genre"); // Variable for Div to hold returned simlilar genre tags from LastFM API
+//var genreSearched = genreTypeSearch.value.trim().toUpperCase();// Variable for user input from genre search
+var savedPostalCode = []; // Array to store history of searched Zip Codes
+var savedGenres = []; // Array to store history of searched Artists
 
-   //  autocomplete(document.getElementById("user-input"), history)
-  //   var resultsSection = $("results");
 
-   // showMainPage();
 
 // On Click Functions
 //Modal Functions
@@ -60,33 +66,6 @@ var searchForm = search.value;
 
 
 
-//if (artist) {
-   // getUserRepos(artistNameSearch);
-//}
-
-//if (genresearch) {
-  //  getElementById(genresearch);
-//}
-
-
-var APIGenius = "13b920321cmshfcc89781b090ab3p1ad43bjsnebb5eaf338d3"; //Genius/Rapid API Key
-
-
-//Global Variables 
-var date = new Date();
-var day = date.getDate();
-var month = date.getMonth();
-var year = date.getFullYear();
-var searchFormEl = document.querySelector("#search-form"); // Variable for search form element
-//var artistNameSearch = document.querySelector("#artist-name-search"); //Variable for Artist Name search input field
-var genreTypeSearch = document.querySelector("#genresearched"); // Variable for the type of Genre searched.
-//var postalCodeSearched = document.querySelector("#postal-searched"); // Variable for Location searched.
-var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for container to hold returned shows by genre
-var showsTonightContainerEl = document.querySelector(".upcomingshows"); // Variable for container to hold returned shows for tonight. 
-var relatedGenreContainerEl = document.querySelector(".related-genre"); // Variable for Div to hold returned simlilar genre tags from LastFM API
-//var genreSearched = genreTypeSearch.value.trim().toUpperCase();// Variable for user input from genre search
-var savedPostalCode = []; // Array to store history of searched Zip Codes
-var savedGenres = []; // Array to store history of searched Artists
 
 
 
