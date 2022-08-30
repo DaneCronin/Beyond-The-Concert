@@ -1,7 +1,73 @@
 $(document).ready() 
 
 
+
 //API Key Variables
+=======
+// $(document).ready(function) {
+   var APITicketMaster = "Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5"; //TicketMaster API Key 
+     var APILastFm = "64ea64681b70d9776ad3714be43dc7de"; //LastFM API Key
+     var band = [];
+     var count = 0;
+
+   //  autocomplete(document.getElementById("user-input"), history)
+  //   var resultsSection = $("results");
+
+   // showMainPage();
+
+// On Click Functions
+//Modal Functions
+const openEls = document.querySelectorAll("[data-open]");
+const closeEls = document.querySelectorAll("[data-close]");
+const isVisible = "is-visible";
+
+for (const el of openEls) {
+  el.addEventListener("click", function() {
+    const modalId = this.dataset.open;
+    document.getElementById(modalId).classList.add(isVisible);
+  });
+}
+
+for (const el of closeEls) {
+  el.addEventListener("click", function() {
+    this.parentElement.parentElement.parentElement.classList.remove(isVisible);
+  });
+}
+
+document.addEventListener("click", e => {
+  if (e.target == document.querySelector(".modal.is-visible")) {
+    document.querySelector(".modal.is-visible").classList.remove(isVisible);
+  }
+});
+
+document.addEventListener("keyup", e => {
+  // if we press the ESC
+  if (e.key == "Escape" && document.querySelector(".modal.is-visible")) {
+    document.querySelector(".modal.is-visible").classList.remove(isVisible);
+  }
+});
+
+// Get results
+
+function search () {
+    let input = document.getElementById('searchForm').value 
+    input = input.toLowerCase ();
+    let x = document.getElementsByClassName('genresearched');
+}
+
+// get value from search elements
+var searchForm = search.value;
+
+
+
+//if (artist) {
+   // getUserRepos(artistNameSearch);
+//}
+
+//if (genresearch) {
+  //  getElementById(genresearch);
+//}
+
 
 var APIGenius = "13b920321cmshfcc89781b090ab3p1ad43bjsnebb5eaf338d3"; //Genius/Rapid API Key
 
@@ -101,7 +167,10 @@ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 
-btn.onclick = function() {
+const button = document.getElementById('myModal');
+console.log(button);
+
+btn.onclick = function alert() {
   modal.style.display = "block";
 }
 
