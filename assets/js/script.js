@@ -1,14 +1,6 @@
 $(document).ready() 
 // var APIGenius = "13b920321cmshfcc89781b090ab3p1ad43bjsnebb5eaf338d3"; //Genius API Key
-// var band = [];
-// var count = 0;
 
-
-// $(document).ready(function) {
-   var APITicketMaster = "Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5"; //TicketMaster API Key 
-     var APILastFm = "64ea64681b70d9776ad3714be43dc7de"; //LastFM API Key
-     var band = [];
-     var count = 0;
 
    //  autocomplete(document.getElementById("user-input"), history)
   //   var resultsSection = $("results");
@@ -45,10 +37,7 @@ $(document).ready()
 
 //API Key Variables
 
-var APITicketMaster = "167cf18937msh0de257d271840fbp18e791jsndfda729eda53"; //TicketMaster API Key 
-var APILastFm = "64ea64681b70d9776ad3714be43dc7de"; //LastFM API Key
-// var band = [];
-// var count = 0;
+var RapidAPIKey = "167cf18937msh0de257d271840fbp18e791jsndfda729eda53"; //Rapid API Key 
 
 
 
@@ -163,30 +152,51 @@ window.onclick = function(event) {
 }
 
 
-    //if (genreSearched || postalCode) {
-        if (genresearched.value === "") {
-            alert("Please enter a valid genre");
-            //Save searched genres into local storage
-            savedGenres.push(genresearched);
-            localStorage.setItem("genreSearched", JSON.stringify(savedGenres));
+    // //if (genreSearched || postalCode) {
+    //     if (genresearched.value === "") {
+    //         alert("Please enter a valid genre");
+    //         //Save searched genres into local storage
+    //         savedGenres.push(genresearched);
+    //         localStorage.setItem("genreSearched", JSON.stringify(savedGenres));
     
     
-            //call TicketMaster API function and LastFm API function
-            getEventInfo();
-            // Call LastFM genre info searched as well? 
-            //getSimilarGenres();
+    //         //call TicketMaster API function and LastFm API function
+    //         getEventInfo();
+    //         // Call LastFM genre info searched as well? 
+    //         //getSimilarGenres();
     
-        } else {
-        }
-     
+    //     } else {
+    //     }
     
-    };
+    // };
 
 //check for valid artist
 // var artistNameSearch = document.getElementById("artistNamesearch").value.trim().toUpperCase();
 
 
 //Fetch call to TicketMaster to get Event data for dates, venues
+// //Fetch to LastFM to get similar genres 
+// var getSimilarGenres = function (getSimilar) {
+// fetch("http://ws.audioscrobbler.com/2.0/?method=tag.getsimilar&tag=" + genreSearched + "&tag.getinfo&tag=" + genreSearched + "&api_key=" + APILastFm + "&format=json")
+// .then (getSimilar  => {
+//     console.log(getSimilar);
+//     return getSimilar.json();
+// })
+// .then (getSimilar => {
+//     console.log(getSimilar)
+// });
+
+// // Empty You Might Like Container for new data
+// relatedGenreContainerEl.textContent = "";
+
+
+// // // Display related info by genre
+// // var relatedGenre = document.createElement('div');
+// // relatedGenre.id = "relatedGenre";
+// // relatedGenre.innerHTML = "Similar results by Genre";
+// // relatedGenreContainerEl.append(eventsGenre);
+
+// };
 
 
 //var getEventInfo = function (eventInfo) {
@@ -201,12 +211,7 @@ window.onclick = function(event) {
             }
         };
         
-        //fetch('https://genius.p.rapidapi.com/artists/16775/songs', options)
-        // fetch(apiURL, options)
-        // console.log(apiURL)
-        //     .then(response => response.json())
-            // .then(response => console.log(response))
-            // .catch(err => console.error(err));
+        
     var apiURL = ("https://genius.p.rapidapi.com/artists/16775/songs", options);
     fetch(apiURL, options)
     console.log(apiURL)
@@ -261,28 +266,7 @@ if (eventInfo.length === 0) {
 
 
 
-//Fetch to LastFM to get similar genres 
-var getSimilarGenres = function (getSimilar) {
-fetch("http://ws.audioscrobbler.com/2.0/?method=tag.getsimilar&tag=" + genreSearched + "&tag.getinfo&tag=" + genreSearched + "&api_key=" + APILastFm + "&format=json")
-.then (getSimilar  => {
-    console.log(getSimilar);
-    return getSimilar.json();
-})
-.then (getSimilar => {
-    console.log(getSimilar)
-});
 
-// Empty You Might Like Container for new data
-relatedGenreContainerEl.textContent = "";
-
-
-// // Display related info by genre
-// var relatedGenre = document.createElement('div');
-// relatedGenre.id = "relatedGenre";
-// relatedGenre.innerHTML = "Similar results by Genre";
-// relatedGenreContainerEl.append(eventsGenre);
-
-};
 
 
 
