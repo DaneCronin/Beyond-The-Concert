@@ -119,7 +119,7 @@ var getTopFive = function (topFive) {
 
 
          // Empty Top Five Container for new data
- topFiveContainerEl.textContent = "";
+ //topFiveContainerEl.textContent = "";
 
 displayTopFive();
  
@@ -127,8 +127,27 @@ displayTopFive();
 };
 
 // *** Display Top Five Songs results from Shazam Rapid API ***//
-var displayTopFive = function(topFiveResults){
+var displayTopFive = function(topFive){
+    var topFiveArray = topFive.result.tracks;
     console.log("returned artists, songs searched");
+
+
+    // // loop over Top Five data 
+    // for (var i=0; i < topFiveArray.length; i++) {
+
+    //    
+    //     var coverArt = topFiveArray[i].topFive[0].result.tracks.images.coverart;
+    //     var popularSongs = topFiveArray[i].topFive[0].result.tracks;
+    //    // coverArtLink = "<img src='http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png' alt='" + weatherDescription + "' title='" + weatherDescription + "'  />";
+    //     var trackEl = document.createElement("div");
+    //     trackEl.className = "track";
+    //     trackEl.innerHTML = "<p>" + popularSongs + "</p>" +
+    //         "<p>" + coverArt + "</p>";
+    //         "<p>Artist: " + topFive[i].result.tracks[i].artists;
+          
+    //     topFiveContainerEl.append(trackEl);
+ 
+    // };
 
 
 
