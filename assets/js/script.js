@@ -286,66 +286,6 @@ relatedGenreContainerEl.textContent = "";
 
 
 
-// let LastFM0 = 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=' + band[0] + '&api_key=78661b1408a61c6f77a83efc09f78da4&format=json'
-// fetch(LastFM0)
-//     .then(
-//         function (response) {
-//             return response.json();
-//         })
-//     .then(data => {
-//         $(".artistInfoResults0").empty();
-//         var artistInfo = data.artist.bio.summary
-//         $(".artistInfoResults0").text(artistInfo)
-//     })
-// let LastFM1 = 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=' + band[1] + '&api_key=78661b1408a61c6f77a83efc09f78da4&format=json'
-// fetch(LastFM1)
-//     .then(
-//         function (response) {
-//             return response.json();
-//         })
-//     .then(data => {
-//         var artistInfo = data.artist.bio.summary
-//         $(".artistInfoResults1").text(artistInfo)
-//     })
-// let LastFM2 = 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=' + band[2] + '&api_key=78661b1408a61c6f77a83efc09f78da4&format=json'
-// fetch(LastFM2)
-//     .then(
-//         function (response) {
-//             return response.json();
-//         })
-//     .then(data => {
-//         var artistInfo = data.artist.bio.summary
-//         $(".artistInfoResults2").append(artistInfo)
-//     })
-// let LastFM3 = 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=' + band[3] + '&api_key=78661b1408a61c6f77a83efc09f78da4&format=json'
-// fetch(LastFM3)
-//     .then(
-//         function (response) {
-//             return response.json();
-//         })
-//     .then(data => {
-//         var artistInfo = data.artist.bio.summary
-//         $(".artistInfoResults3").append(artistInfo)
-//     })
-// let LastFM4 = 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=' + band[4] + '&api_key=78661b1408a61c6f77a83efc09f78da4&format=json'
-// fetch(LastFM4)
-//     .then(
-//         function (response) {
-//             return response.json();
-//         })
-//     .then(data => {
-//         var artistInfo = data.artist.bio.summary
-//         $(".artistInfoResults4").append(artistInfo)
-//     });
-
-
-
-
-
-
-
-
-
     //load zipcodes and artists searched to localStorage 
 
 var loadSearchedZipCode = function (postalCode) {
