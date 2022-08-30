@@ -118,7 +118,7 @@ var formSubmitHandler = function (event) {
     // var genreSearched = document.getElementById("genresearched").value.trim().toUpperCase();
 
     //check for valid genre search
-
+}
     
 // MODAL JS
 var modal = document.getElementById('myModal');
