@@ -13,12 +13,8 @@ var searchFormEl = document.querySelector("#search-form"); // Variable for searc
 //var artistNameSearch = document.querySelector("#artist-name-search"); //Variable for Artist Name search input field
 // var artistNameSearch = document.getElementById("artistNamesearch").value.trim().toUpperCase();
 var genreTypeSearch = document.querySelector("#genresearched"); // Variable for the type of Genre searched.
-//var postalCodeSearched = document.querySelector("#postal-searched"); // Variable for Location searched.
-var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for container to hold returned shows by genre
-var showsTonightContainerEl = document.querySelector(".upcomingshows"); // Variable for container to hold returned shows for tonight. 
-var relatedGenreContainerEl = document.querySelector(".related-genre"); // Variable for Div to hold returned simlilar genre tags from LastFM API
-//var genreSearched = genreTypeSearch.value.trim().toUpperCase();// Variable for user input from genre search
-var savedPostalCode = []; // Array to store history of searched Zip Codes
+var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for container to hold returned shows by genre 
+var topFiveContainerEl = document.querySelector(".top-Five"); // Variable for Div to hold returned top five songs from Shazam API
 var savedGenres = []; // Array to store history of searched Artists
 
 
@@ -91,24 +87,9 @@ var formSubmitHandler = function (event) {
 
     console.log(search);
     getGenre(search);
-    getEventInfo(search);
+    getTopFive(search);
 
     genreTypeSearch.value = "";
-
-
-      //check for valid zipCode
-       //const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(postalCode);
-      
-    //if (isValidZip === true) {
-       // console.log(isValidZip);
-        
-        
-       //getEventInfo(postalCode);
-      // postalCode.value = "";
-
-   //} else if (isValidZip === false || null) {
-//        alert("Please enter zip code");
-//    }
 
    
 };
@@ -120,45 +101,41 @@ var formSubmitHandler = function (event) {
 
 
 
-// ****** Fetch call to TicketMaster Rapid API to get Event data for dates, venues *****//
+// ****** Fetch call to Shazam Rapid API to get top Five songs in US *****//
 
-var getEventInfo = function (eventInfo) {
-    const encodedParams = new URLSearchParams();
-    encodedParams.append("apiKey", "<REQUIRED>");
-    encodedParams.append("classificationName", search);
-    
+var getTopFive = function (topFive) {
     const options = {
-        method: 'POST',
+        method: 'GET',
         headers: {
-            'content-type': 'application/x-www-form-urlencoded',
             'X-RapidAPI-Key': '167cf18937msh0de257d271840fbp18e791jsndfda729eda53',
-            'X-RapidAPI-Host': 'Ticketmasterstefan-skliarovV1.p.rapidapi.com'
-        },
-        body: encodedParams
+            'X-RapidAPI-Host': 'shazam-song-recognizer.p.rapidapi.com'
+        }
     };
     
-    fetch('https://ticketmasterstefan-skliarovv1.p.rapidapi.com/searchEvents=' + search, options)
+    fetch('https://shazam-song-recognizer.p.rapidapi.com/top_country_tracks?country_code=US&limit=5&start_from=0', options)
         .then(response => response.json())
         .then(response => console.log(response))
         .catch(err => console.error(err));
+        console.log("artist top 5");
 
-        console.log("event");
+
+         // Empty Top Five Container for new data
+ topFiveContainerEl.textContent = "";
+
+
+ // Display Top Five Songs in US
+var topFiveUS = document.createElement('div');
+topFiveUS.id = "topFiveUS";
+topFiveUS.innerHTML = "Similar results by Genre";
+topFiveContainerEl.append(topFiveUS);
 
 };
 
 
 
-// // Empty You Might Like Container for new data
-// relatedGenreContainerEl.textContent = "";
 
 
-// // // Display related info by genre
-// // var relatedGenre = document.createElement('div');
-// // relatedGenre.id = "relatedGenre";
-// // relatedGenre.innerHTML = "Similar results by Genre";
-// // relatedGenreContainerEl.append(eventsGenre);
 
-// };
 
 
 //***** API CALL TO GENIUS API ******//
@@ -181,20 +158,15 @@ var getEventInfo = function (eventInfo) {
         
 
 
-
-
-
-// Empty Shows Tonight Container for new data
-showsTonightContainerEl.textContent = "";
-//genreContainerEl.textContent = "";
-
     }
 
+    // Empty Shows Tonight Container for new data
+    //genreContainerEl.textContent = "";
 
 
-//Display events by zip code to shows tonight 
-var displayUpcomingShows = function(eventInfo){
-console.log("returned shows by zip code");
+    //Display events by zip code to shows tonight 
+    var displayUpcomingShows = function(eventInfo){
+    console.log("returned shows by zip code");
 
 //check for returned events info from TicketMaster API
 if (eventInfo.length === 0) {
