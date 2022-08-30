@@ -5,7 +5,6 @@
 
 /* apply styles to <header> */
 header {
-
     padding: 20px 35px;
     background-color: rgba(0, 0, 0, 0.862);
     display: flex;
@@ -19,27 +18,35 @@ header h1 {
     color: white;
     margin: 0;
     display: inline;
-    
 }
+
 header a {
     text-decoration: none;
     color: white;
     font-family: 🦞 ;
     
   }
+
 header nav {
     float: right;
     margin: 7px 0;
 }
+
 header nav ul li {
     display: inline;
   }
+
 header nav ul li a {
     margin: 0 20px;
     font-weight: lighter;
     font-size: 18px;
   }
 
+header nav ul li a:hover{
+    color: rgb(235, 151, 72);
+    text-decoration: underline;
+
+}
 
 /*---- Upcoming Shows Section Styling -----*/
 
