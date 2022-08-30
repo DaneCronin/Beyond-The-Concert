@@ -10,6 +10,7 @@ var month = date.getMonth();
 var year = date.getFullYear();
 var searchFormEl = document.querySelector("#search-form"); // Variable for search form element
 //var artistNameSearch = document.querySelector("#artist-name-search"); //Variable for Artist Name search input field
+// var artistNameSearch = document.getElementById("artistNamesearch").value.trim().toUpperCase();
 var genreTypeSearch = document.querySelector("#genresearched"); // Variable for the type of Genre searched.
 //var postalCodeSearched = document.querySelector("#postal-searched"); // Variable for Location searched.
 var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for container to hold returned shows by genre
@@ -82,11 +83,11 @@ var formSubmitHandler = function (event) {
 
     //Variables for Postal Code value and Genre Value from user input
      //postalCode = postalCodeSearched.value.trim();
-     //genreSearched = genreTypeSearch.value.trim().toUpperCase();
+     
 
 
     console.log(search);
-    getEventInfo(search);
+    getGenre(search);
 
     genreTypeSearch.value = "";
 
@@ -110,24 +111,12 @@ var formSubmitHandler = function (event) {
 
     //console.log("postalCode");
 
-    //Check for valid Genre search 
-
     // var genreSearched = document.getElementById("genresearched").value.trim().toUpperCase();
 
     // var genreSearched = genreTypeSearch.value.trim().toUpperCase();
     // var genreSearched = document.getElementById("genresearched").value.trim().toUpperCase();
 
-    //check for valid genre search
-}
-    
-// MODAL JS
-var modal = document.getElementById('myModal');
-var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("close")[0];
-
-
-
-    // if (genreSearched || postalCode) {
+       // if (genreSearched || postalCode) {
     // if (genreSearched.value === "") {
     //     alert("Please enter a valid genre");
     //     //Save searched genres into local storage
@@ -142,61 +131,35 @@ var span = document.getElementsByClassName("close")[0];
 
     // } else {
     // }
+
+
+   
+}
+    
+
+
+
+
+ 
  
 
-// When the user clicks on the button, open the modal
-
-const button = document.getElementById('myModal');
-console.log(button);
-
-btn.onclick = function alert() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
 
 
-    // //if (genreSearched || postalCode) {
-    //     if (genresearched.value === "") {
-    //         alert("Please enter a valid genre");
-    //         //Save searched genres into local storage
-    //         savedGenres.push(genresearched);
-    //         localStorage.setItem("genreSearched", JSON.stringify(savedGenres));
-    
-    
-    //         //call TicketMaster API function and LastFm API function
-    //         getEventInfo();
-    //         // Call LastFM genre info searched as well? 
-    //         //getSimilarGenres();
-    
-    //     } else {
-    //     }
-    
-    // };
-
-//check for valid artist
-// var artistNameSearch = document.getElementById("artistNamesearch").value.trim().toUpperCase();
 
 
-//Fetch call to TicketMaster to get Event data for dates, venues
 
-var getSimilarGenres = function (getSimilar) {
+
+
+// ****** Fetch call to TicketMaster Rapid API to get Event data for dates, venues *****//
+
+var getEventInfo = function (eventInfo) {
 fetch("http://ws.audioscrobbler.com/2.0/?method=tag.getsimilar&tag=" + genreSearched + "&tag.getinfo&tag=" + genreSearched + "&api_key=" + APILastFm + "&format=json")
-.then (getSimilar  => {
-    console.log(getSimilar);
-    return getSimilar.json();
+.then (eventInfo  => {
+    console.log(eventInfo);
+    return eventInfo.json();
 })
-.then (getSimilar => {
-    console.log(getSimilar)
+.then (eventInfo => {
+    console.log(eventInfo)
 });
 };
 
@@ -213,8 +176,10 @@ fetch("http://ws.audioscrobbler.com/2.0/?method=tag.getsimilar&tag=" + genreSear
 // };
 
 
+//***** API CALL TO GENIUS API ******//
+
 //var getEventInfo = function (eventInfo) {
-    function getEventInfo(search) {
+    function getGenre(search) {
 
 
         const options = {
@@ -283,7 +248,7 @@ if (eventInfo.length === 0) {
 
 
 
-    //load zipcodes and artists searched to localStorage 
+    // **** Local Storage -load zipcodes and artists searched to localStorage **** //
 
 var loadSearchedZipCode = function (postalCode) {
     searchArray = JSON.parse(localStorage.getItem("postalcodeSearch"));
@@ -294,11 +259,8 @@ var loadSearchedZipCode = function (postalCode) {
         for (let i = 0; i < searchArray.length; i++) {
             
         }
-
     }
 };
-
-
 
 
 
