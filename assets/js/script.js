@@ -74,7 +74,6 @@ var formSubmitHandler = function (event) {
         return;
     }
   
-
     event.preventDefault();
    
     var search = genreTypeSearch.value.trim();
@@ -122,12 +121,23 @@ var getTopFive = function (topFive) {
          // Empty Top Five Container for new data
  topFiveContainerEl.textContent = "";
 
+displayTopFive();
+ 
 
- // Display Top Five Songs in US
+};
+
+// *** Display Top Five Songs results from Shazam Rapid API ***//
+var displayTopFive = function(topFiveResults){
+    console.log("returned artists, songs searched");
+
+
+
+// Display Top Five Songs in US
 var topFiveUS = document.createElement('div');
 topFiveUS.id = "topFiveUS";
 topFiveUS.innerHTML = "Similar results by Genre";
 topFiveContainerEl.append(topFiveUS);
+
 
 };
 
@@ -137,10 +147,9 @@ topFiveContainerEl.append(topFiveUS);
 
 
 
-
 //***** API CALL TO GENIUS API ******//
 
-//var getEventInfo = function (eventInfo) {
+
     function getGenre(search) {
 
         const options = {
@@ -157,24 +166,24 @@ topFiveContainerEl.append(topFiveUS);
             .catch(err => console.error(err));
         
 
+    };
 
-    }
+   
 
-    // Empty Shows Tonight Container for new data
-    //genreContainerEl.textContent = "";
+    // *** Display Searched results from Genius Rapid API ***//
+    var displaySearchedResults = function(searchResults){
+    console.log("returned artists, songs searched");
 
-
-    //Display events by zip code to shows tonight 
-    var displayUpcomingShows = function(eventInfo){
-    console.log("returned shows by zip code");
+     // Empty Shows Tonight Container for new data
+    genreContainerEl.textContent = "";
 
 //check for returned events info from TicketMaster API
-if (eventInfo.length === 0) {
-    showsTonightContainerEl.textContent = "No Shows to Display.";
+if (searchResults.length === 0) {
+    genreContainerEl.textContent = "No Results to Display.";
     return;
 }
 
-// // Display Event/artist Name
+//** Display Artist/Song info that was searched **//
 // var eventName = document.createElement('div');
 // eventName.id = "eventname";
 // eventName.innerHTML = "Upcoming Shows ";
@@ -203,12 +212,12 @@ if (eventInfo.length === 0) {
 
     // **** Local Storage -load zipcodes and artists searched to localStorage **** //
 
-var loadSearchedZipCode = function (postalCode) {
-    searchArray = JSON.parse(localStorage.getItem("postalcodeSearch"));
+var loadSavedGenres = function (savedSearch) {
+    searchArray = JSON.parse(localStorage.getItem("genresSearch"));
 
     if (searchArray) {
         console.log(searchArray);
-        savedPostalCode = JSON.parse(localStorage.getItem("postalcodeSearch"));
+        savedGenres = JSON.parse(localStorage.getItem("genresSearch"));
         for (let i = 0; i < searchArray.length; i++) {
             
         }
