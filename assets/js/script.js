@@ -87,7 +87,7 @@ var formSubmitHandler = function (event) {
 
 
     console.log(search);
-    getEventInfo(search);
+    getGenre(search);
 
     genreTypeSearch.value = "";
 
@@ -111,24 +111,12 @@ var formSubmitHandler = function (event) {
 
     //console.log("postalCode");
 
-    //Check for valid Genre search 
-
     // var genreSearched = document.getElementById("genresearched").value.trim().toUpperCase();
 
     // var genreSearched = genreTypeSearch.value.trim().toUpperCase();
     // var genreSearched = document.getElementById("genresearched").value.trim().toUpperCase();
 
-    //check for valid genre search
-}
-    
-// MODAL JS
-var modal = document.getElementById('myModal');
-var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("close")[0];
-
-
-
-    // if (genreSearched || postalCode) {
+       // if (genreSearched || postalCode) {
     // if (genreSearched.value === "") {
     //     alert("Please enter a valid genre");
     //     //Save searched genres into local storage
@@ -143,46 +131,20 @@ var span = document.getElementsByClassName("close")[0];
 
     // } else {
     // }
+
+
+   
+}
+    
+
+
+
+
+ 
  
 
-// When the user clicks on the button, open the modal
-
-const button = document.getElementById('myModal');
-console.log(button);
-
-btn.onclick = function alert() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
 
 
-    // //if (genreSearched || postalCode) {
-    //     if (genresearched.value === "") {
-    //         alert("Please enter a valid genre");
-    //         //Save searched genres into local storage
-    //         savedGenres.push(genresearched);
-    //         localStorage.setItem("genreSearched", JSON.stringify(savedGenres));
-    
-    
-    //         //call TicketMaster API function and LastFm API function
-    //         getEventInfo();
-    //         // Call LastFM genre info searched as well? 
-    //         //getSimilarGenres();
-    
-    //     } else {
-    //     }
-    
-    // };
 
 
 
@@ -297,30 +259,9 @@ var loadSearchedZipCode = function (postalCode) {
         for (let i = 0; i < searchArray.length; i++) {
             
         }
-
     }
 };
 
-
-
-// MODAL JS
-var modal = document.getElementById("myModal");
-var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("close")[0];
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-};
 
 
 
