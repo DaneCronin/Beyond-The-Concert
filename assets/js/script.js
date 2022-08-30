@@ -16,14 +16,14 @@ $(document).ready()
 
 // Get results
 
-function search () {
-    let input = document.getElementById('searchForm').value 
-    input = input.toLowerCase ();
-    let x = document.getElementsByClassName('artistNamesearch')
-}
+// function search () {
+//     let input = document.getElementById('searchForm').value 
+//     input = input.toLowerCase ();
+//     let x = document.getElementsByClassName('artistNamesearch')
+// }
 
-// get value from search elements
-var searchForm = search.value;
+// // get value from search elements
+// var searchForm = search.value;
 
 //if (artist) {
    // getUserRepos(artistNameSearch);
@@ -38,7 +38,7 @@ var searchForm = search.value;
 //}
 
 //API Key Variables
-var APITicketMaster = "Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5"; //TicketMaster API Key 
+var APITicketMaster = "167cf18937msh0de257d271840fbp18e791jsndfda729eda53"; //TicketMaster API Key 
 var APILastFm = "64ea64681b70d9776ad3714be43dc7de"; //LastFM API Key
 // var band = [];
 // var count = 0;
@@ -52,7 +52,7 @@ var year = date.getFullYear();
 var searchFormEl = document.querySelector("#search-form"); // Variable for search form element
 //var artistNameSearch = document.querySelector("#artist-name-search"); //Variable for Artist Name search input field
 var genreTypeSearch = document.querySelector("#genresearched"); // Variable for the type of Genre searched.
-var postalCodeSearched = document.querySelector("#postal-searched"); // Variable for Location searched.
+//var postalCodeSearched = document.querySelector("#postal-searched"); // Variable for Location searched.
 var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for container to hold returned shows by genre
 var showsTonightContainerEl = document.querySelector(".upcomingshows"); // Variable for container to hold returned shows for tonight. 
 var relatedGenreContainerEl = document.querySelector(".related-genre"); // Variable for Div to hold returned simlilar genre tags from LastFM API
@@ -64,45 +64,51 @@ var savedGenres = []; // Array to store history of searched Artists
 
 // Create Click Event Handler for search form
 var formSubmitHandler = function (event) {
+    
+    if (!genreTypeSearch.value) {
+        return;
+    }
+
     event.preventDefault();
+   
+    var search = genreTypeSearch.value.trim();
 
     //Variables for Postal Code value and Genre Value from user input
+     //postalCode = postalCodeSearched.value.trim();
+     //genreSearched = genreTypeSearch.value.trim().toUpperCase();
 
-   // var postalCode = postalCodeSearched.value.trim();
-     postalCode = document.getElementById("postalCodeSearched").value;
-     genreSearched = genreTypeSearch.value.trim().toUpperCase();
 
-    //var postalCode = postalCodeSearched.value.trim();
-   // var postalCode = document.getElementById("postalCodeSearched").value;
-    
+    console.log(search);
+    getEventInfo(search);
 
+    genreTypeSearch.value = "";
 
 
       //check for valid zipCode
-      // const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(postalCode);
+       //const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(postalCode);
       
     //if (isValidZip === true) {
        // console.log(isValidZip);
           //Save searched zip codes into local storage
-         // savedPostalCode.push(postalCode);
-         // localStorage.setItem("postalcodeSearch", JSON.stringify(savedPostalCode));
+       //  savedPostalCode.push(postalCode);
+       //  localStorage.setItem("postalcodeSearch", JSON.stringify(savedPostalCode));
 
-        //call getEventInfo function
-       // getEventInfo(postalCode);
-      //  postalCode.value = "";
+        
+       //getEventInfo(postalCode);
+      // postalCode.value = "";
 
-   // } else if (isValidZip === false || null) {
-       // alert("Please enter zip code");
-  //  }
+   //} else if (isValidZip === false || null) {
+//        alert("Please enter zip code");
+//    }
 
-    console.log("postalCode");
+    //console.log("postalCode");
 
     //Check for valid Genre search 
 
-    var genreSearched = document.getElementById("genresearched").value.trim().toUpperCase();
+    // var genreSearched = document.getElementById("genresearched").value.trim().toUpperCase();
 
-    //var genreSearched = genreTypeSearch.value.trim().toUpperCase();
-    //var genreSearched = document.getElementById("genresearched").value.trim().toUpperCase();
+    // var genreSearched = genreTypeSearch.value.trim().toUpperCase();
+    // var genreSearched = document.getElementById("genresearched").value.trim().toUpperCase();
 
     //check for valid genre search
 
@@ -110,21 +116,21 @@ var formSubmitHandler = function (event) {
 
 
 
-    //if (genreSearched || postalCode) {
-    if (genresearched.value === "") {
-        alert("Please enter a valid genre");
-        //Save searched genres into local storage
-        savedGenres.push(genresearched);
-        localStorage.setItem("genreSearched", JSON.stringify(savedGenres));
+    // if (genreSearched || postalCode) {
+    // if (genreSearched.value === "") {
+    //     alert("Please enter a valid genre");
+    //     //Save searched genres into local storage
+    //     savedGenres.push(genresearched);
+    //     localStorage.setItem("genreSearched", JSON.stringify(savedGenres));
 
 
-        //call TicketMaster API function and LastFm API function
-        getEventInfo();
-        // Call LastFM genre info searched as well? 
-        getSimilarGenres();
+    //     //call TicketMaster API function and LastFm API function
+    //     getEventInfo();
+    //     // Call LastFM genre info searched as well? 
+    //     getSimilarGenres();
 
-    } else {
-    }
+    // } else {
+    // }
  
 
 };
@@ -134,16 +140,35 @@ var formSubmitHandler = function (event) {
 
 
 //Fetch call to TicketMaster to get Event data for dates, venues
-var getEventInfo = function (eventInfo) {
-fetch("https://app.ticketmaster.com/discovery/v2/events.json?postalcode=" + postalCode + "&classificationName=music&apikey=" + APITicketMaster)
-.then (ticketMaster => {
-    console.log(ticketMaster);
-    return ticketMaster.json()
-}) 
-.then (ticketInfo => {
-    console.log(ticketInfo)
 
-   
+
+//var getEventInfo = function (eventInfo) {
+    function getEventInfo(search) {
+
+
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '167cf18937msh0de257d271840fbp18e791jsndfda729eda53',
+                'X-RapidAPI-Host': 'genius.p.rapidapi.com'
+            }
+        };
+        
+        //fetch('https://genius.p.rapidapi.com/artists/16775/songs', options)
+        // fetch(apiURL, options)
+        // console.log(apiURL)
+        //     .then(response => response.json())
+            // .then(response => console.log(response))
+            // .catch(err => console.error(err));
+    var apiURL = ("https://genius.p.rapidapi.com/artists/16775/songs", options);
+    fetch(apiURL, options)
+    console.log(apiURL)
+	.then(response => response.json(response))
+    .then(response => console.log(response))
+    .catch(err => console.error(err))
+.then (response => {
+    console.log(data)
+
 
 
 
@@ -290,13 +315,6 @@ var loadSearchedZipCode = function (postalCode) {
     }
 }
 
-
-
-
-
-//Add event listener for button click on search
-searchFormEl.addEventListener("submit", formSubmitHandler);
-
 // MODAL JS
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("myBtn");
@@ -314,4 +332,10 @@ window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+};
+
+
+
+
+//Add event listener for button click on search
+searchFormEl.addEventListener("submit", formSubmitHandler)
