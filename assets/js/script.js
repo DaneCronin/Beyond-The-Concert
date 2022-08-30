@@ -1,44 +1,9 @@
 $(document).ready() 
-// var APIGenius = "13b920321cmshfcc89781b090ab3p1ad43bjsnebb5eaf338d3"; //Genius API Key
 
-
-   //  autocomplete(document.getElementById("user-input"), history)
-  //   var resultsSection = $("results");
-
-   // showMainPage();
-
-// On Click Functions
-
-
-// Get results
-
-
-// function search () {
-//     let input = document.getElementById('searchForm').value 
-//     input = input.toLowerCase ();
-//     let x = document.getElementsByClassName('artistNamesearch')
-// }
-
-
-// // get value from search elements
-// var searchForm = search.value;
-
-//if (artist) {
-   // getUserRepos(artistNameSearch);
-//}
-
-//if (genresearch) {
-  //  getElementById(genresearch);
-//}
-
-//if (locationsearch) {
- //   getUserRepos(locationsearch);
-//}
 
 //API Key Variables
 
-var RapidAPIKey = "167cf18937msh0de257d271840fbp18e791jsndfda729eda53"; //Rapid API Key 
-
+var APIGenius = "13b920321cmshfcc89781b090ab3p1ad43bjsnebb5eaf338d3"; //Genius/Rapid API Key
 
 
 //Global Variables 
@@ -175,16 +140,17 @@ window.onclick = function(event) {
 
 
 //Fetch call to TicketMaster to get Event data for dates, venues
-// //Fetch to LastFM to get similar genres 
-// var getSimilarGenres = function (getSimilar) {
-// fetch("http://ws.audioscrobbler.com/2.0/?method=tag.getsimilar&tag=" + genreSearched + "&tag.getinfo&tag=" + genreSearched + "&api_key=" + APILastFm + "&format=json")
-// .then (getSimilar  => {
-//     console.log(getSimilar);
-//     return getSimilar.json();
-// })
-// .then (getSimilar => {
-//     console.log(getSimilar)
-// });
+
+var getSimilarGenres = function (getSimilar) {
+fetch("http://ws.audioscrobbler.com/2.0/?method=tag.getsimilar&tag=" + genreSearched + "&tag.getinfo&tag=" + genreSearched + "&api_key=" + APILastFm + "&format=json")
+.then (getSimilar  => {
+    console.log(getSimilar);
+    return getSimilar.json();
+})
+.then (getSimilar => {
+    console.log(getSimilar)
+});
+};
 
 // // Empty You Might Like Container for new data
 // relatedGenreContainerEl.textContent = "";
@@ -215,11 +181,10 @@ window.onclick = function(event) {
     var apiURL = ("https://genius.p.rapidapi.com/artists/16775/songs", options);
     fetch(apiURL, options)
     console.log(apiURL)
-	.then(response => response.json(response))
+	.then(response => response.json())
     .then(response => console.log(response))
     .catch(err => console.error(err))
-.then (response => {
-    console.log(data)
+
 
 
 
@@ -229,9 +194,9 @@ window.onclick = function(event) {
 showsTonightContainerEl.textContent = "";
 //genreContainerEl.textContent = "";
 
+    }
 
-});
-};
+
 
 //Display events by zip code to shows tonight 
 var displayUpcomingShows = function(eventInfo){
@@ -281,10 +246,9 @@ var loadSearchedZipCode = function (postalCode) {
         for (let i = 0; i < searchArray.length; i++) {
             
         }
-       
 
     }
-}
+};
 
 
 // MODAL JS
@@ -309,7 +273,5 @@ window.onclick = function(event) {
 
 
 
-
 //Add event listener for button click on search
-searchFormEl.addEventListener("submit", formSubmitHandler)
-
+searchFormEl.addEventListener("submit", formSubmitHandler);
