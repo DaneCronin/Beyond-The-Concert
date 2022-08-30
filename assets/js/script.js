@@ -134,14 +134,8 @@ var formSubmitHandler = function (event) {
 
 
    
-}
+};
     
-
-
-
-
- 
- 
 
 
 
@@ -181,7 +175,6 @@ fetch("http://ws.audioscrobbler.com/2.0/?method=tag.getsimilar&tag=" + genreSear
 //var getEventInfo = function (eventInfo) {
     function getGenre(search) {
 
-
         const options = {
             method: 'GET',
             headers: {
@@ -190,13 +183,19 @@ fetch("http://ws.audioscrobbler.com/2.0/?method=tag.getsimilar&tag=" + genreSear
             }
         };
         
+        fetch('https://genius.p.rapidapi.com/search?q=Kendrick%20Lamar', options)
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .catch(err => console.error(err));
         
-    var apiURL = ("https://genius.p.rapidapi.com/artists/16775/songs", options);
-    fetch(apiURL, options)
-    console.log(apiURL)
-	.then(response => response.json())
-    .then(response => console.log(response))
-    .catch(err => console.error(err))
+        
+        
+    // var apiURL = ("https://genius.p.rapidapi.com/artists/16775/songs", options);
+    // fetch(apiURL, options)
+    // console.log(apiURL)
+	// .then(response => response.json())
+    // .then(response => console.log(response))
+    // .catch(err => console.error(err))
 
 
 
