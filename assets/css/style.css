@@ -73,9 +73,34 @@ header nav ul li a {
     font-size: 18px;
   }
 
+  footer {
+    background:  rgba(0, 0, 0, 0.862);
+    width: 100%;
+    padding: 10px 10px;
+  }
+  
+  footer h2 {
+    display: inline;
+    color: white;
+    font-size: 30px;
+    margin: 0;
+  }
+  
+  footer div {
+    float: right;
+    line-height: 1.5;
+    text-align: right;
+  }
+  
+  footer a {
+    color: #024e76;
+  }
+
+
 header nav ul li a:hover{
     color: var(--Light-Orange-Color);
     text-decoration: underline;
+
 
 }
 

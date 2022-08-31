@@ -224,11 +224,7 @@ if (searchResults.length === 0) {
 // genreContainerEl.append(eventsGenre);
 
 
-
 };
-
-
-
 
 
 
