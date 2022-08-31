@@ -23,6 +23,7 @@ const openEls = document.querySelectorAll("[data-open]");
 const closeEls = document.querySelectorAll("[data-close]");
 const isVisible = "is-visible";
 
+
 for (const el of openEls) {
   el.addEventListener("click", function() {
     const modalId = this.dataset.open;
@@ -55,7 +56,7 @@ function showmodal () {
 }
 function search () {
     let input = document.getElementById('genresearched').value 
-    if (!search || search.length===0) {
+    if (!search || search.length === 0) {
       showmodal ()
     }
     console.log("searchForm", input);
@@ -83,7 +84,7 @@ var formSubmitHandler = function (event) {
     event.preventDefault();
    
     var search = document.getElementById('genresearched').value; 
-    if (search.length===0) {
+    if (search.length === 0) {
       showmodal()
     }
       else {
