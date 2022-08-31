@@ -164,7 +164,7 @@ button {
   transition: all 0.35s ease-in;
 }
 
-.modal.is-visible {
+.is-visible {
   visibility: visible;
   opacity: 1;
 }
