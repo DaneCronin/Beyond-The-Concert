@@ -249,7 +249,7 @@ button {
 
 .modal-header .close-modal {
   font-size: 1.5rem;
-  visibility: visible;
+  visibility: hidden;
   background-color: orange;
 }
 
