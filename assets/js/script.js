@@ -18,6 +18,8 @@ var showsTonightContainerEl = document.querySelector(".showstonight"); // Variab
 var artistInfoContainerEl = document.querySelector(".artistmusic"); // Variable for Div to hold returned Artist Info from LastFM API
 var savedPostalCode = []; // Array to store history of searched Zip Codes
 var savedArtists = []; // Array to store history of searched Artists
+var buttonsearch = $("#buttonSearch")
+
 
 
 // Create Click Event Handler for search form
@@ -125,7 +127,7 @@ fetch("http://ws.audioscrobbler.com/2.0/?method=tag.gettopartists&tag=disco&api_
 });
 
 
-let LastFM0 = 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=' + band[0] + '&api_key=78661b1408a61c6f77a83efc09f78da4&format=json'
+let LastFM0 = 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=' + band[0] + '&api_key=64ea64681b70d9776ad3714be43dc7de&format=json'
 fetch(LastFM0)
     .then(
         function (response) {
@@ -136,7 +138,7 @@ fetch(LastFM0)
         var artistInfo = data.artist.bio.summary
         $(".artistInfoResults0").text(artistInfo)
     })
-let LastFM1 = 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=' + band[1] + '&api_key=78661b1408a61c6f77a83efc09f78da4&format=json'
+let LastFM1 = 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=' + band[1] + '&api_key=64ea64681b70d9776ad3714be43dc7de&format=json'
 fetch(LastFM1)
     .then(
         function (response) {
@@ -146,7 +148,7 @@ fetch(LastFM1)
         var artistInfo = data.artist.bio.summary
         $(".artistInfoResults1").text(artistInfo)
     })
-let LastFM2 = 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=' + band[2] + '&api_key=78661b1408a61c6f77a83efc09f78da4&format=json'
+let LastFM2 = 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=' + band[2] + '&api_key=64ea64681b70d9776ad3714be43dc7de&format=json'
 fetch(LastFM2)
     .then(
         function (response) {
@@ -156,7 +158,7 @@ fetch(LastFM2)
         var artistInfo = data.artist.bio.summary
         $(".artistInfoResults2").append(artistInfo)
     })
-let LastFM3 = 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=' + band[3] + '&api_key=78661b1408a61c6f77a83efc09f78da4&format=json'
+let LastFM3 = 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=' + band[3] + '&api_key=64ea64681b70d9776ad3714be43dc7de&format=json'
 fetch(LastFM3)
     .then(
         function (response) {
@@ -166,7 +168,7 @@ fetch(LastFM3)
         var artistInfo = data.artist.bio.summary
         $(".artistInfoResults3").append(artistInfo)
     })
-let LastFM4 = 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=' + band[4] + '&api_key=78661b1408a61c6f77a83efc09f78da4&format=json'
+let LastFM4 = 'https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=' + band[4] + '&api_key=64ea64681b70d9776ad3714be43dc7de&format=json'
 fetch(LastFM4)
     .then(
         function (response) {
@@ -176,9 +178,9 @@ fetch(LastFM4)
         var artistInfo = data.artist.bio.summary
         $(".artistInfoResults4").append(artistInfo)
     });
+    
 
-
-
+    buttonsearch.on('click', button);
 
 
 
