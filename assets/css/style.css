@@ -2,43 +2,77 @@
     box-sizing: border-box;
 }
 
+/* Add DM Sans Font Family */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+ {
+  font-family: "DM Sans", sans-serif;
+}
+
+body {
+  background-color: var(--Dark-Blue-Color);
+}
+/* Site Color Palette */
+:root {
+  --Light-Blue-Color: rgb(142, 202, 230);
+  --Cyan-Blue-Color: rgb(33, 158, 188);
+  --Dark-Blue-Color: rgb(2, 48, 71);
+  --Light-Orange-Color: rgb(255, 183, 3);
+  --Dark-Orange-Color: rgb(251, 133, 0);
+  --Light-Grey-Color: rgb(206, 212, 218);
+  --Med-Grey-Color: rgb(73, 80, 87);
+} 
 
 /* apply styles to <header> */
 header {
-
     padding: 20px 35px;
-    background-color: rgba(0, 0, 0, 0.862);
+    background-color: rgba(2, 48, 71, 0.7);
     display: flex;
     justify-content: space-between;
     z-index: 999;
 }
 
-header h1 {
+header h1 a {
     font-weight: bold;
     font-size: 36px;
     color: white;
-    margin: 0;
     display: inline;
-    
 }
+
+#headphone-icon {
+  color: var(--Light-Blue-Color);
+}
+
+header h1 a:hover {
+  color: var(--Light-Orange-Color);
+}
+
 header a {
     text-decoration: none;
     color: white;
-    font-family: 🦞 ;
     
   }
+
 header nav {
     float: right;
     margin: 7px 0;
 }
+
 header nav ul li {
     display: inline;
   }
+
 header nav ul li a {
-    margin: 0 30px;
+    margin: 0 20px;
     font-weight: lighter;
-    font-size: 22px;
+    font-size: 18px;
   }
+
   footer {
     background:  rgba(0, 0, 0, 0.862);
     width: 100%;
@@ -62,42 +96,56 @@ header nav ul li a {
     color: #024e76;
   }
 
+
+header nav ul li a:hover{
+    color: var(--Light-Orange-Color);
+    text-decoration: underline;
+
+
+}
+
 /*---- Upcoming Shows Section Styling -----*/
 
-
+.upcomingshows-container {
+    padding: 50px;
+    margin: 10px 0px 10px 5px;
+    width: 100%;
+    background-color: white;
+}
 
 
 /* Search Form Styles Start */
 .search {
-    
-    font-size: 15px;
-    padding: 60px;
+    font-size: 16px;
+    padding: 50px;
     height: 200px;
     background-size: cover;
-    background-position: left;
-    background-color: lightskyblue;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    position: relative;
-    border-style: solid;
-    border-width: 5px;
-    border-color: black;
+    background-position: center;
+    background-color: var(--Dark-Blue-Color);
+    /*font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;*/
+    text-align: center;
+    float:inline-end;
 }
 
+.searchtext {
+    color: var(--Light-Blue-Color);
+    text-align: center;
+    margin:auto;
+    padding: 10px 30px 20px 30px;
+}
 .searchbtn {
-    color: white;
+    color: black;
     background-color: white;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
     padding: 10px 20px;
-    font-size: 15px;
+
+    font-size: 18px;
     border: none;
     margin: 0 10px;
 }
 
 .searchbtn:hover {
-    color: rgb(205, 228, 245);
-    background-color: rgb(119, 119, 119);
+    color: rgb(251, 251, 251);
+    background-color: var(--Light-Orange-Color);
     border: none;
 }
 
@@ -107,5 +155,134 @@ header nav ul li a {
 }
 
 
+/* Popular/Top-Five Songs Styling Section */
 
-/*---- Artist Music/Info Section Styling ----*/
+.top-Five-section {
+  background-color: var(--Dark-Orange-Color);
+}
+
+.top-Five-section h3 {
+  color: var(--Dark-Blue-Color);
+  font-weight: 700;
+}
+
+#music-icon {
+  color: rgba(255,255,255,0.7);
+}
+
+/* Footer Styling */
+
+.footer {
+  background-color: white;
+}
+
+.footer h2 {
+  color: var(--Dark-Blue-Color);
+}
+
+/*---- Modal Box ----*/
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: inherit;
+}
+
+.btn-group {
+  text-align: center;
+}
+
+.open-modal {
+  font-weight: bold;
+  background: var(--blue);
+  color: var(--white);
+  padding: 0.75rem 1.75rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+
+
+/* MODAL
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.modal {
+  position: fixed;
+  top: 500px;
+  left: 500px;
+  right: 500px;
+  bottom: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: var(--black);
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 1;
+  transition: all 0.35s ease-in;
+  color: white;
+}
+
+.is-visible {
+  visibility: visible;
+  opacity: 1;
+  background-color: orange;
+  margin: 100px 50px 100px 50px;
+  
+}
+
+.modal-dialog {
+  position: relative;
+  max-width: 800px;
+  max-height: 80vh;
+  border-radius: 5px;
+  background: var(--white);
+  overflow: auto;
+  cursor: default;
+  visibility: hidden;
+  opacity: 1;
+}
+
+.modal-dialog > * {
+  padding: 1rem;
+  visibility: visible;
+}
+
+.modal-header,
+.modal-footer {
+  background: var(--lightgray);
+  visibility: hidden;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  visibility: hidden;
+}
+
+.modal-header .close-modal {
+  font-size: 1.5rem;
+  visibility: visible;
+  background-color: orange;
+}
+
+.modal p + p {
+  margin-top: 1rem;
+  visibility: hidden;
+}
+
+
+
+
+
+  /* tailwind */
+  @tailwind base;
+@tailwind components;
+@tailwind utilities;
