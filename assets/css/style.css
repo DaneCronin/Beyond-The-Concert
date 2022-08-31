@@ -209,6 +209,7 @@ button {
   opacity: 1;
   background-color: orange;
   margin: 100px 50px 100px 50px;
+  
 }
 
 .modal-dialog {
@@ -249,7 +250,7 @@ button {
 
 .modal p + p {
   margin-top: 1rem;
-  visibility: visible;
+  visibility: hidden;
 }
 
 
