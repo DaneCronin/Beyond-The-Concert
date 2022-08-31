@@ -188,10 +188,10 @@ button {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .modal {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 500px;
+  left: 500px;
+  right: 500px;
+  bottom: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -199,13 +199,16 @@ button {
   background: var(--black);
   cursor: pointer;
   visibility: hidden;
-  opacity: 0;
+  opacity: 1;
   transition: all 0.35s ease-in;
+  color: white;
 }
 
 .is-visible {
   visibility: visible;
   opacity: 1;
+  background-color: orange;
+  margin: 100px 50px 100px 50px;
 }
 
 .modal-dialog {
@@ -216,29 +219,37 @@ button {
   background: var(--white);
   overflow: auto;
   cursor: default;
+  visibility: hidden;
+  opacity: 1;
 }
 
 .modal-dialog > * {
   padding: 1rem;
+  visibility: visible;
 }
 
 .modal-header,
 .modal-footer {
   background: var(--lightgray);
+  visibility: hidden;
 }
 
 .modal-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  visibility: hidden;
 }
 
 .modal-header .close-modal {
   font-size: 1.5rem;
+  visibility: visible;
+  background-color: orange;
 }
 
 .modal p + p {
   margin-top: 1rem;
+  visibility: visible;
 }
 
 

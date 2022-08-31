@@ -55,7 +55,7 @@ function showmodal () {
 }
 function search () {
     let input = document.getElementById('genresearched').value 
-    if (input.length<1) {
+    if (!search || search.length === 0) {
       showmodal ()
     }
     console.log("searchForm", input);
@@ -63,7 +63,7 @@ function search () {
     let x = document.getElementsByClassName('genresearched');
 }
 
-// searchbutton.addEventListener("click", search);
+searchbutton.addEventListener("click", search);
 
 // get value from search elements
 // var searchForm = search.value;
@@ -91,7 +91,7 @@ var formSubmitHandler = function (event) {
         savedGenres.push(search);
         localStorage.setItem("genresSearch", JSON.stringify(savedGenres));
  
-
+ 
 
     console.log(search);
     getGenre(search);
