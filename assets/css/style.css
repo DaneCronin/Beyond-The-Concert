@@ -41,7 +41,6 @@ header h1 a {
     font-weight: bold;
     font-size: 36px;
     color: white;
-    margin: 0;
     display: inline;
 }
 
@@ -140,6 +139,10 @@ header nav ul li a:hover{
 .top-Five-section h3 {
   color: var(--Dark-Blue-Color);
   font-weight: 700;
+}
+
+#music-icon {
+  color: rgba(255,255,255,0.7);
 }
 
 /* Footer Styling */
