@@ -230,9 +230,6 @@ if (searchResults.length === 0) {
 
 
 
-    buttonsearch.on('click', button);
-
-
 
 
 
