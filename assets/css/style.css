@@ -249,8 +249,9 @@ button {
 
 .modal-header .close-modal {
   font-size: 1.5rem;
-  visibility: hidden;
-  background-color: orange;
+  visibility: visible;
+  background-color: white;
+  color: black;
 }
 
 .modal-header .close-hidden {
