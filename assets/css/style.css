@@ -212,7 +212,7 @@ button {
   visibility: visible;
   opacity: 1;
   background-color: orange;
-  margin: 100px 50px 100px 50px;
+  margin: 0;
   
 }
 
@@ -258,6 +258,7 @@ button {
   font-size: 1.5rem;
   visibility: hidden;
   background-color: orange;
+  margin: 100px 50px 100px 50px;
 }
 
 .modal p + p {
