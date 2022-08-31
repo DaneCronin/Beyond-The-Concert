@@ -16,7 +16,7 @@ var genreTypeSearch = document.querySelector("#genresearched"); // Variable for 
 var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for container to hold returned shows by genre 
 var topFiveContainerEl = document.querySelector(".top-Five"); // Variable for Div to hold returned top five songs from Shazam API
 var savedGenres = []; // Array to store history of searched Artists
-
+var searchbutton = document.querySelector("#search-button"); 
 
 
 //**** On Click Functions ****//
@@ -38,29 +38,37 @@ for (const el of closeEls) {
   });
 }
 
-document.addEventListener("click", e => {
-  if (e.target == document.querySelector(".modal.is-visible")) {
-    document.querySelector(".modal.is-visible").classList.remove(isVisible);
-  }
-});
+// document.addEventListener("click", e => {
+//   if (e.target == document.querySelector(".modal.is-visible")) {
+//     document.querySelector(".modal.is-visible").classList.remove(isVisible);
+//   }
+// });
 
-document.addEventListener("keyup", e => {
-  // if we press the ESC
-  if (e.key == "Escape" && document.querySelector(".modal.is-visible")) {
-    document.querySelector(".modal.is-visible").classList.remove(isVisible);
-  }
-});
+// document.addEventListener("keyup", e => {
+//   // if we press the ESC
+//   if (e.key == "Escape" && document.querySelector(".modal.is-visible")) {
+//     document.querySelector(".modal.is-visible").classList.remove(isVisible);
+//   }
+// });
 
 // Get results
-
+function showmodal () {
+  document.querySelector("#modal1").classList.add(isVisible);
+}
 function search () {
-    let input = document.getElementById('searchForm').value 
+    let input = document.getElementById('genresearched').value 
+    if (input.length<1) {
+      showmodal ()
+    }
+    console.log("searchForm", input);
     input = input.toLowerCase ();
     let x = document.getElementsByClassName('genresearched');
 }
 
+// searchbutton.addEventListener("click", search);
+
 // get value from search elements
-var searchForm = search.value;
+// var searchForm = search.value;
 
 
 
@@ -76,8 +84,11 @@ var formSubmitHandler = function (event) {
   
     event.preventDefault();
    
-    var search = genreTypeSearch.value.trim();
-
+    var search = document.getElementById('genresearched').value; 
+    if (search.length<1) {
+      showmodal()
+    }
+      else {
       //Save searched genre into local storage
         savedGenres.push(search);
         localStorage.setItem("genresSearch", JSON.stringify(savedGenres));
@@ -89,7 +100,7 @@ var formSubmitHandler = function (event) {
     getTopFive(search);
 
     genreTypeSearch.value = "";
-
+      }
    
 };
     
