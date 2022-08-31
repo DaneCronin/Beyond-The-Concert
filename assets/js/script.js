@@ -139,7 +139,7 @@ displayTopFive();
 
 // *** Display Top Five Songs results from Shazam Rapid API ***//
 var displayTopFive = function(topFive){
-   var topFiveArray = result.tracks;
+   var topFiveArray = topFive[i].result.tracks;
     console.log("returned artists, songs searched");
 
 

@@ -15,7 +15,16 @@ h6
 }
 
 
-
+/* Site Color Palette */
+:root {
+  --Light-Blue-Color: rgb(142, 202, 230);
+  --Cyan-Blue-Color: rgb(33, 158, 188);
+  --Dark-Blue-Color: rgb(2, 48, 71);
+  --Light-Orange-Color: rgb(255, 183, 3);
+  --Dark-Orange-Color: rgb(251, 133, 0);
+  --Light-Grey-Color: rgb(206, 212, 218);
+  --Med-Grey-Color: rgb(73, 80, 87);
+} 
 
 /* apply styles to <header> */
 header {
@@ -29,9 +38,13 @@ header {
 header h1 {
     font-weight: bold;
     font-size: 36px;
-    color: white;
+    color: var(--Light-Orange-Color);
     margin: 0;
     display: inline;
+}
+
+header h1:hover {
+  color: white;
 }
 
 header a {
@@ -57,7 +70,7 @@ header nav ul li a {
   }
 
 header nav ul li a:hover{
-    color: rgb(235, 151, 72);
+    color: var(--Light-Orange-Color);
     text-decoration: underline;
 
 }
@@ -78,7 +91,7 @@ header nav ul li a:hover{
     height: 200px;
     background-size: cover;
     background-position: center;
-    background-color: lightskyblue;
+    background-color: var(--Light-Blue-Color);
     /*font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;*/
     border-style: solid;
     border-width: 5px;
@@ -97,7 +110,7 @@ header nav ul li a:hover{
     background-color: white;
     padding: 10px 20px;
 
-    font-size: 20px;
+    font-size: 18px;
     border: none;
     margin: 0 10px;
 }
