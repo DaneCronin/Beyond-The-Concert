@@ -140,27 +140,27 @@ displayTopFive();
 
 // *** Display Top Five Songs results from Shazam Rapid API ***//
 var displayTopFive = function(topFive){
-    var topFiveArray = topFive.result.tracks[i];
-    console.log(topFive);
+  //   var topFiveArray = topFive.result.tracks[i];
+  //   console.log(topFive);
   
 
 
-   // loop over Top Five data 
-    for (var i=0; i < topFiveArray.length; i++) {
+  //  // loop over Top Five data 
+  //   for (var i=0; i < topFiveArray.length; i++) {
 
        
-        var coverArt = topFiveArray.images.coverart;
-        var popularSongs = topFiveArray.title;
-       var artist = topFiveArray.subtitle;
-        var trackEl = document.createElement("div");
-        trackEl.className = "track";
-        trackEl.innerHTML = "<p>" + popularSongs + "</p>" +
-            "<p>" + coverArt + "</p>";
-            "<p>Artist: " + artist +"</p>";
+  //       var coverArt = topFiveArray.images.coverart;
+  //       var popularSongs = topFiveArray.title;
+  //      var artist = topFiveArray.subtitle;
+  //       var trackEl = document.createElement("div");
+  //       trackEl.className = "track";
+  //       trackEl.innerHTML = "<p>" + popularSongs + "</p>" +
+  //           "<p>" + coverArt + "</p>";
+  //           "<p>Artist: " + artist +"</p>";
           
-        topFiveContainerEl.append(trackEl);
+  //       topFiveContainerEl.append(trackEl);
  
-    };
+  //   };
 
 
 
@@ -196,24 +196,60 @@ var displayTopFive = function(topFive){
             .then(response => response.json())
             .then(response => console.log(response))
             .catch(err => console.error(err));
-        
+    
+      
 
     };
 
+
+    
+      // ** Function to Display Returned Data from GENIUS API **//
+    
+      const listSongs = (e) => {
+        console.log(e);
+        genreContainerEl.innerHTML += `	<div class="song-card">
+                  <img src="${e.result.song_art_image_thumbnail_url}" alt="" class="album-cover">
+                  <h2 class="artist-name">Artist: ${e.result.artist_names}</h2>
+                  <h3 class="song-name">Song: ${e.result.title}</h3>
+                  <a href="${e.result.url}" target="_blank" class="lyrics">Click here for lyrics!</a>
+              </div>`;
+      };
+      
+      const displaySearchedResults = async (e) => {
+       
+        let theValue = genreTypeSearch.value.trim();
+        const response = await fetch(`https://genius.p.rapidapi.com/search?q='${theValue}`, {
+          "method": "GET",
+          "headers": {
+            "x-rapidapi-host": "genius.p.rapidapi.com",
+            "x-rapidapi-key": "167cf18937msh0de257d271840fbp18e791jsndfda729eda53"
+          }
+        });
+      
+        if(response.status === 200) {
+          const resultResponse = await response.json();
+          if(resultResponse.meta.status === 200) {
+            genreContainerEl.innerHTML = "";
+            resultResponse.response.hits.forEach(listSongs);
+          } else {
+            console.error("Something went wrong");
+            genreContainerEl.innerHTML = `<p class="error">Something went wrong!</p>`;
+          }
+        } else {
+          console.error("Something went wrong");
+          genreContainerEl.innerHTML = `<p class="error">Something went wrong!</p>`;
+        }
+      };
+  
+  
    
 
-    // *** Display Searched results from Genius Rapid API ***//
-    var displaySearchedResults = function(searchResults){
-    console.log("returned artists, songs searched");
+//     // *** Display Searched results from Genius Rapid API ***//
+//     var displaySearchedResults = function(searchResults){
+//     console.log("returned artists, songs searched");
 
-     // Empty Shows Tonight Container for new data
-    genreContainerEl.textContent = "";
 
-//check for returned events info from TicketMaster API
-if (searchResults.length === 0) {
-    genreContainerEl.textContent = "No Results to Display.";
-    return;
-}
+
 
 //** Display Artist/Song info that was searched **//
 // var eventName = document.createElement('div');
@@ -228,7 +264,7 @@ if (searchResults.length === 0) {
 // genreContainerEl.append(eventsGenre);
 
 
-};
+//};
 
 
 
