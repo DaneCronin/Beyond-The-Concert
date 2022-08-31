@@ -87,10 +87,9 @@ var formSubmitHandler = function (event) {
       showmodal()
     }
       else {
-      //Save searched genre into local storage
+      //Save searched genre/artist into local storage
         savedGenres.push(search);
         localStorage.setItem("genresSearch", JSON.stringify(savedGenres));
- 
  
 
     console.log(search);
@@ -99,10 +98,11 @@ var formSubmitHandler = function (event) {
 
     genreTypeSearch.value = "";
       }
+
+      displaySearchedResults();
    
 };
     
-
 
 
 
@@ -198,7 +198,7 @@ var displayTopFive = function(topFive){
             .catch(err => console.error(err));
     
       
-
+        
     };
 
 
@@ -229,7 +229,7 @@ var displayTopFive = function(topFive){
         if(response.status === 200) {
           const resultResponse = await response.json();
           if(resultResponse.meta.status === 200) {
-            genreContainerEl.innerHTML = "";
+           genreContainerEl.innerHTML = "";
             resultResponse.response.hits.forEach(listSongs);
           } else {
             console.error("Something went wrong");
@@ -242,34 +242,6 @@ var displayTopFive = function(topFive){
       };
   
   
-   
-
-//     // *** Display Searched results from Genius Rapid API ***//
-//     var displaySearchedResults = function(searchResults){
-//     console.log("returned artists, songs searched");
-
-
-
-
-//** Display Artist/Song info that was searched **//
-// var eventName = document.createElement('div');
-// eventName.id = "eventname";
-// eventName.innerHTML = "Upcoming Shows ";
-// showsTonightContainerEl.append(eventName);
-
-// // Display shows searched by genre
-// var eventsGenre = document.createElement('div');
-// eventsGenre.id = "eventsGenre";
-// eventsGenre.innerHTML = "Shows by Genre";
-// genreContainerEl.append(eventsGenre);
-
-
-//};
-
-
-
-
-
 
 
 
