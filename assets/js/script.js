@@ -1,7 +1,7 @@
 $(document).ready() 
 
 var APIGenius = "13b920321cmshfcc89781b090ab3p1ad43bjsnebb5eaf338d3"; //Genius/Rapid API Key
-var TicketMasterAPI = "Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5"; //API for TicketMaster
+
 
 
 //Global Variables 
@@ -10,8 +10,6 @@ var day = date.getDate();
 var month = date.getMonth();
 var year = date.getFullYear();
 var searchFormEl = document.querySelector("#search-form"); // Variable for search form element
-//var artistNameSearch = document.querySelector("#artist-name-search"); //Variable for Artist Name search input field
-// var artistNameSearch = document.getElementById("artistNamesearch").value.trim().toUpperCase();
 var genreTypeSearch = document.querySelector("#genresearched"); // Variable for the type of Genre searched.
 var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for container to hold returned shows by genre 
 var topFiveContainerEl = document.querySelector(".top-Five"); // Variable for Div to hold returned top five songs from Shazam API

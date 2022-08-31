@@ -14,7 +14,9 @@ h6
   font-family: "DM Sans", sans-serif;
 }
 
-
+body {
+  background-color: var(--Dark-Blue-Color);
+}
 /* Site Color Palette */
 :root {
   --Light-Blue-Color: rgb(142, 202, 230);
@@ -29,28 +31,31 @@ h6
 /* apply styles to <header> */
 header {
     padding: 20px 35px;
-    background-color: rgba(0, 0, 0, 0.862);
+    background-color: rgba(2, 48, 71, 0.7);
     display: flex;
     justify-content: space-between;
     z-index: 999;
 }
 
-header h1 {
+header h1 a {
     font-weight: bold;
     font-size: 36px;
-    color: var(--Light-Orange-Color);
+    color: white;
     margin: 0;
     display: inline;
 }
 
-header h1:hover {
-  color: white;
+#headphone-icon {
+  color: var(--Light-Blue-Color);
+}
+
+header h1 a:hover {
+  color: var(--Light-Orange-Color);
 }
 
 header a {
     text-decoration: none;
     color: white;
-    
     
   }
 
@@ -78,32 +83,31 @@ header nav ul li a:hover{
 /*---- Upcoming Shows Section Styling -----*/
 
 .upcomingshows-container {
-    padding: 60px;
+    padding: 50px;
     margin: 10px 0px 10px 5px;
-    width:max-content;
+    width: 100%;
+    background-color: white;
 }
 
 
 /* Search Form Styles Start */
 .search {
     font-size: 16px;
-    padding: 60px;
+    padding: 50px;
     height: 200px;
     background-size: cover;
     background-position: center;
-    background-color: var(--Light-Blue-Color);
+    background-color: var(--Dark-Blue-Color);
     /*font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;*/
-    border-style: solid;
-    border-width: 5px;
-    border-color: black;
     text-align: center;
     float:inline-end;
 }
 
 .searchtext {
+    color: var(--Light-Blue-Color);
     text-align: center;
     margin:auto;
-    padding: 10px 30px 10px 30px;
+    padding: 10px 30px 20px 30px;
 }
 .searchbtn {
     color: black;
@@ -116,8 +120,8 @@ header nav ul li a:hover{
 }
 
 .searchbtn:hover {
-    color: rgb(205, 228, 245);
-    background-color: rgb(119, 119, 119);
+    color: rgb(251, 251, 251);
+    background-color: var(--Light-Orange-Color);
     border: none;
 }
 
@@ -127,8 +131,26 @@ header nav ul li a:hover{
 }
 
 
+/* Popular/Top-Five Songs Styling Section */
 
-/*---- Artist Music/Info Section Styling ----*/
+.top-Five-section {
+  background-color: var(--Dark-Orange-Color);
+}
+
+.top-Five-section h3 {
+  color: var(--Dark-Blue-Color);
+  font-weight: 700;
+}
+
+/* Footer Styling */
+
+.footer {
+  background-color: white;
+}
+
+.footer h2 {
+  color: var(--Dark-Blue-Color);
+}
 
 /*---- Modal Box ----*/
 a {
@@ -156,6 +178,7 @@ button {
   margin-bottom: 1rem;
   border-radius: 5px;
 }
+
 
 
 /* MODAL
