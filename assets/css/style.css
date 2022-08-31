@@ -170,6 +170,7 @@ button {
   border: none;
   outline: none;
   font-size: inherit;
+  color: black;
 }
 
 .btn-group {
@@ -236,6 +237,7 @@ button {
 .modal-footer {
   background: var(--lightgray);
   visibility: hidden;
+  background-color: orange;
 }
 
 .modal-header {
@@ -248,6 +250,12 @@ button {
 .modal-header .close-modal {
   font-size: 1.5rem;
   visibility: visible;
+  background-color: orange;
+}
+
+.modal-header .close-hidden {
+  font-size: 1.5rem;
+  visibility: hidden;
   background-color: orange;
 }
 

@@ -55,7 +55,7 @@ function showmodal () {
 }
 function search () {
     let input = document.getElementById('genresearched').value 
-    if (!search || search.length<1) {
+    if (!search || search.length===0) {
       showmodal ()
     }
     console.log("searchForm", input);
@@ -66,7 +66,7 @@ function search () {
 searchbutton.addEventListener("click", search);
 
 // get value from search elements
-// var searchForm = search.value;
+ var searchForm = search.value;
 
 
 
@@ -83,7 +83,7 @@ var formSubmitHandler = function (event) {
     event.preventDefault();
    
     var search = document.getElementById('genresearched').value; 
-    if (search.length<1) {
+    if (search.length===0) {
       showmodal()
     }
       else {
