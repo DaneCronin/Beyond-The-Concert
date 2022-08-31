@@ -66,7 +66,7 @@ function search () {
 searchbutton.addEventListener("click", search);
 
 // get value from search elements
- var searchForm = search.value;
+// var searchForm = search.value;
 
 
 
@@ -99,7 +99,7 @@ var formSubmitHandler = function (event) {
     genreTypeSearch.value = "";
       }
 
-     // displaySearchedResults();
+      displaySearchedResults();
    
 };
     
@@ -133,36 +133,45 @@ var getTopFive = function (topFive) {
          // Empty Top Five Container for new data
  //topFiveContainerEl.textContent = "";
 
-//displayTopFive();
+displayTopFive();
  
 
 };
 
-// // *** Display Top Five Songs results from Shazam Rapid API ***//
-// var displayTopFive = function(options){
-//     var topFiveArray = options.result.tracks[i];
-//     console.log(options);
+// *** Display Top Five Songs results from Shazam Rapid API ***//
+var displayTopFive = function(topFive){
+  //   var topFiveArray = topFive.result.tracks[i];
+  //   console.log(topFive);
   
 
 
-//    // loop over Top Five data 
-//     for (var i=0; i < topFiveArray.length; i++) {
+  //  // loop over Top Five data 
+  //   for (var i=0; i < topFiveArray.length; i++) {
 
        
-//         var coverArt = topFiveArray.images.coverart;
-//         var popularSongs = topFiveArray.title;
-//        var artist = topFiveArray.subtitle;
-//         var trackEl = document.createElement("div");
-//         trackEl.className = "track";
-//         trackEl.innerHTML = "<p>" + popularSongs + "</p>" +
-//             "<p>" + coverArt + "</p>";
-//             "<p>Artist: " + artist +"</p>";
+  //       var coverArt = topFiveArray.images.coverart;
+  //       var popularSongs = topFiveArray.title;
+  //      var artist = topFiveArray.subtitle;
+  //       var trackEl = document.createElement("div");
+  //       trackEl.className = "track";
+  //       trackEl.innerHTML = "<p>" + popularSongs + "</p>" +
+  //           "<p>" + coverArt + "</p>";
+  //           "<p>Artist: " + artist +"</p>";
           
-//         topFiveContainerEl.append(trackEl);
+  //       topFiveContainerEl.append(trackEl);
  
-//     };
+  //   };
 
-// };
+
+
+// // Display Top Five Songs in US
+// var topFiveUS = document.createElement('div');
+// topFiveUS.id = "topFiveUS";
+// topFiveUS.innerHTML = "Similar results by Genre" + topFiveArray[0];
+// topFiveContainerEl.append(topFiveUS);
+
+
+};
 
 
 
