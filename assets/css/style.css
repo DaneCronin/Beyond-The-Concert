@@ -14,30 +14,47 @@ h6
   font-family: "DM Sans", sans-serif;
 }
 
-
-
+body {
+  background-color: var(--Dark-Blue-Color);
+}
+/* Site Color Palette */
+:root {
+  --Light-Blue-Color: rgb(142, 202, 230);
+  --Cyan-Blue-Color: rgb(33, 158, 188);
+  --Dark-Blue-Color: rgb(2, 48, 71);
+  --Light-Orange-Color: rgb(255, 183, 3);
+  --Dark-Orange-Color: rgb(251, 133, 0);
+  --Light-Grey-Color: rgb(206, 212, 218);
+  --Med-Grey-Color: rgb(73, 80, 87);
+} 
 
 /* apply styles to <header> */
 header {
     padding: 20px 35px;
-    background-color: rgba(0, 0, 0, 0.862);
+    background-color: rgba(2, 48, 71, 0.7);
     display: flex;
     justify-content: space-between;
     z-index: 999;
 }
 
-header h1 {
+header h1 a {
     font-weight: bold;
     font-size: 36px;
     color: white;
-    margin: 0;
     display: inline;
+}
+
+#headphone-icon {
+  color: var(--Light-Blue-Color);
+}
+
+header h1 a:hover {
+  color: var(--Light-Orange-Color);
 }
 
 header a {
     text-decoration: none;
     color: white;
-    
     
   }
 
@@ -57,7 +74,7 @@ header nav ul li a {
   }
 
 header nav ul li a:hover{
-    color: rgb(235, 151, 72);
+    color: var(--Light-Orange-Color);
     text-decoration: underline;
 
 }
@@ -65,46 +82,45 @@ header nav ul li a:hover{
 /*---- Upcoming Shows Section Styling -----*/
 
 .upcomingshows-container {
-    padding: 60px;
+    padding: 50px;
     margin: 10px 0px 10px 5px;
-    width:max-content;
+    width: 100%;
+    background-color: white;
 }
 
 
 /* Search Form Styles Start */
 .search {
     font-size: 16px;
-    padding: 60px;
+    padding: 50px;
     height: 200px;
     background-size: cover;
     background-position: center;
-    background-color: lightskyblue;
+    background-color: var(--Dark-Blue-Color);
     /*font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;*/
-    border-style: solid;
-    border-width: 5px;
-    border-color: black;
     text-align: center;
     float:inline-end;
 }
 
 .searchtext {
+    color: var(--Light-Blue-Color);
     text-align: center;
     margin:auto;
-    padding: 10px 30px 10px 30px;
+    padding: 10px 30px 20px 30px;
 }
 .searchbtn {
     color: black;
     background-color: white;
     padding: 10px 20px;
 
-    font-size: 20px;
+    font-size: 18px;
     border: none;
     margin: 0 10px;
 }
 
 .searchbtn:hover {
-    color: rgb(205, 228, 245);
-    background-color: rgb(119, 119, 119);
+    color: rgb(251, 251, 251);
+    background-color: var(--Light-Orange-Color);
     border: none;
 }
 
@@ -114,8 +130,30 @@ header nav ul li a:hover{
 }
 
 
+/* Popular/Top-Five Songs Styling Section */
 
-/*---- Artist Music/Info Section Styling ----*/
+.top-Five-section {
+  background-color: var(--Dark-Orange-Color);
+}
+
+.top-Five-section h3 {
+  color: var(--Dark-Blue-Color);
+  font-weight: 700;
+}
+
+#music-icon {
+  color: rgba(255,255,255,0.7);
+}
+
+/* Footer Styling */
+
+.footer {
+  background-color: white;
+}
+
+.footer h2 {
+  color: var(--Dark-Blue-Color);
+}
 
 /*---- Modal Box ----*/
 a {
@@ -143,6 +181,7 @@ button {
   margin-bottom: 1rem;
   border-radius: 5px;
 }
+
 
 
 /* MODAL

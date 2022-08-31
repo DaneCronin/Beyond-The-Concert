@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Tailwind CSS CDN Link-->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!--  Link to Font Awesome for Icons-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
   <!-- Link to Google Fonts custom fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,23 +26,25 @@
   <header class="fixed sticky flex top-0 backdrop-blur-sm ">
     <h1>
 
-      <a href="/" class="text-3xl font-bold">Beyond The Concert</a>
+      <a href="/"><i class="fa-solid fa-headphones-simple fa-xl p-2" id="headphone-icon"></i>
+
+        Beyond The Concert</a>
 
 
     </h1>
-    <nav class ="flex overflow-auto">
+    <nav class ="flex overflow-auto justify-center">
       <ul>
         <li>
-          <a href="#upcomingshows-section">Results</a>
+          <a href="#upcomingshows-section">results</a>
         </li>
         <li>
-          <a href="#search-form">Search</a>
+          <a href="#search-form">search</a>
         </li>
         <li>
-          <a href="#topfive-section">Popular</a>
+          <a href="#topfive-section">popular</a>
         </li>
         <li>
-          <a href="#contact">Contact</a>
+          <a href="#contact">contact</a>
         </li>
       </ul>
     </nav>
@@ -49,10 +53,10 @@
 
 
     <!-- This is the search form section-->
-    <section class="search flex overflow-auto mt-3" id="search-form">
+    <section class="search flex overflow-auto" id="search-form">
       <div>
         <div class="searchtext">
-        <h2 class="searchtext font-bold text-2xl">Search</h2>
+        <h2 class="searchtext font-bold text-xl">SEARCH</h2>
         <form id="searchForm" class="container-flex">
           <div class="flex mx-auto">
         <!-- editing this section out for now-
@@ -60,12 +64,14 @@
           <input class="input rounded" type="text" placeholder="Artist" name="artist" id="artistNamesearch" />
         -->
         <!-- <label for="Genre" class="font-bold p-2">Genre:</label> -->
-          <input type="text" class="genreSearch" placeholder="Enter Artist's or Song Name" name="genre" id="genresearched" />
+          <input type="text" class="genreSearch rounded p-3" placeholder="Enter Artist or Song" name="genre" id="genresearched" />
          <!--editing this section out for now
           <label for="postalcode" class="font-bold p-2">Location:</label>
           <input type="text" placeholder="location" name="postalCode" id="postalCodeSearched" />
          -->
-          <button class="searchbtn" type="search" id="search-button">Click to Search!</button>
+          <button class="searchbtn rounded" type="search" id="search-button"><i class="fa-solid fa-magnifying-glass pr-2"></i>
+
+            Search</button>
         </form>
       </div>
       </div>
@@ -103,14 +109,14 @@
 </div>
       
  <!-- Section Container for Returned Data with Upcoming Shows Info -->
- <section class="upcomingshows-container flex mx-auto bg-black/25 mt-3" id="upcomingshows-section">
-  <div class="container flex mx-auto grid grid-cols-3 gap-x-3 gap-y-3">
+ <section class="upcomingshows-container flex mx-auto mt-3" id="upcomingshows-section">
+  <div class="container flex mx-auto grid grid-cols-2 gap-x-3 gap-y-3">
 
     <!-- Div Container for Shows by Date-->
     <section>
-    <div class="card bg-white mb-6 p-3">
+    <div class="card bg-white mb-3 p-3">
       <div class="text-center overflow-auto">
-        <h3 class="text-2xl font-bold mt-3">Results</h3>
+        <h3 class="text-2xl font-bold mt-3">RESULTS</h3>
         <div class="upcomingshows">
          
         </div>
@@ -130,11 +136,11 @@
     </div>
 
     <!-- Div Container for Featured Events-->
-    <div class="card bg-white mb-6 p-3 ">
+    <div class="card bg-white mb-3 p-3 ">
       <div class="featuredevents text-center overflow-auto">
-        <h3 class="text-2xl font-bold mt-3">Featured Events</h3>
+        <h3 class="text-2xl font-bold mt-3">FEATURED EVENTS</h3>
         <div class=" flex place-content-center p-2">
-          <div  w-type="event-discovery" w-tmapikey="Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5" w-keyword="" w-theme="simple" w-colorscheme="light" w-width="300" w-height="600" w-size="25" w-border="0" w-borderradius="4" w-radius="30" w-period="month" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_478s3" w-source="ticketmaster" w-branding="Ticketmaster" w-classificationname="music" w-latlong="34.0390107,-118.2672801"></div>
+          <div  w-type="event-discovery" w-tmapikey="Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5" w-keyword="" w-theme="simple" w-colorscheme="light" w-width="350" w-height="600" w-size="25" w-border="0" w-borderradius="4" w-radius="30" w-period="month" w-layout="vertical" w-attractionid="" w-promoterid="" w-venueid="" w-affiliateid="" w-segmentid="" w-proportion="custom" w-titlelink="off" w-sorting="groupByName" w-id="id_478s3" w-source="ticketmaster" w-branding="Ticketmaster" w-classificationname="music" w-latlong="34.0390107,-118.2672801"></div>
 
         </div>
       </div>
@@ -149,13 +155,15 @@
 </div>
 
   <!-- Section for Returned Data with similar genre info and music? -->
-  <section class="top-Five-section mx-auto bg-black/70 mt-6" id="topfive-section">
+  <section class="top-Five-section -mt-3" id="topfive-section">
     <div class="container flex justify-center overflow-auto">
       <!-- Div Container for Artist's songs-->
 
 
-    <div class="top-Five container my-6">
-      <h3 class="text-2xl font-bold text-center mx-auto">Popular</h3>
+    <div class="top-Five container flex justify-center my-6">
+      <h3 class="text-2xl font-bold"><i class="fa-solid fa-music fa-xl p-3" id="music-icon"></i>
+
+        POPULAR</h3>
 
     </div>
 
@@ -168,9 +176,9 @@
 
 
 <!--Footer Section-->
-<footer class="flex mx-auto my-6">
-  <div class="contact container flex mx-auto bg-grey/50" id="contact">
-    <h2>Made with love by fighting Geckos🦎</h2>
+<footer class="footer flex">
+  <div class="contact container flex mx-auto my-6 justify-center" id="contact">
+    <h2>made with love by fighting geckos🦎</h2>
   </div>
 </footer>
 

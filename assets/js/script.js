@@ -1,7 +1,7 @@
 $(document).ready() 
 
 var APIGenius = "13b920321cmshfcc89781b090ab3p1ad43bjsnebb5eaf338d3"; //Genius/Rapid API Key
-var TicketMasterAPI = "Bf30TtLUQxcKHdqHqQWR0a13lcphJbg5"; //API for TicketMaster
+
 
 
 //Global Variables 
@@ -10,8 +10,6 @@ var day = date.getDate();
 var month = date.getMonth();
 var year = date.getFullYear();
 var searchFormEl = document.querySelector("#search-form"); // Variable for search form element
-//var artistNameSearch = document.querySelector("#artist-name-search"); //Variable for Artist Name search input field
-// var artistNameSearch = document.getElementById("artistNamesearch").value.trim().toUpperCase();
 var genreTypeSearch = document.querySelector("#genresearched"); // Variable for the type of Genre searched.
 var genreContainerEl = document.querySelector(".showsbygenre"); // Variable for container to hold returned shows by genre 
 var topFiveContainerEl = document.querySelector(".top-Five"); // Variable for Div to hold returned top five songs from Shazam API
@@ -139,26 +137,26 @@ displayTopFive();
 
 // *** Display Top Five Songs results from Shazam Rapid API ***//
 var displayTopFive = function(topFive){
-    var topFiveArray = topFive.result.tracks;
+   var topFiveArray = topFive[i].result.tracks;
     console.log("returned artists, songs searched");
 
 
-    // // loop over Top Five data 
-    // for (var i=0; i < topFiveArray.length; i++) {
+    // loop over Top Five data 
+    for (var i=0; i < topFiveArray.length; i++) {
 
-    //    
-    //     var coverArt = topFiveArray[i].topFive[0].result.tracks.images.coverart;
-    //     var popularSongs = topFiveArray[i].topFive[0].result.tracks;
-    //    // coverArtLink = "<img src='http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png' alt='" + weatherDescription + "' title='" + weatherDescription + "'  />";
-    //     var trackEl = document.createElement("div");
-    //     trackEl.className = "track";
-    //     trackEl.innerHTML = "<p>" + popularSongs + "</p>" +
-    //         "<p>" + coverArt + "</p>";
-    //         "<p>Artist: " + topFive[i].result.tracks[i].artists;
+       
+        var coverArt = topFiveArray[i].result.tracks.images.coverart;
+        var popularSongs = topFiveArray[i].result.tracks;
+       
+        var trackEl = document.createElement("div");
+        trackEl.className = "track";
+        trackEl.innerHTML = "<p>" + popularSongs + "</p>" +
+            "<p>" + coverArt + "</p>";
+            "<p>Artist: " + topFiveArray[i].result.tracks[i].artists;
           
-    //     topFiveContainerEl.append(trackEl);
+        topFiveContainerEl.append(trackEl);
  
-    // };
+    };
 
 
 
