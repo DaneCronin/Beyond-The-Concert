@@ -121,8 +121,11 @@ var getTopFive = function (topFive) {
     };
     
     fetch('https://shazam-song-recognizer.p.rapidapi.com/top_country_tracks?country_code=US&limit=5&start_from=0', options)
-        .then(response => response.json())
-        .then(response => console.log(response))
+        .then(function (response){
+          return response.json();
+        })
+        .then(function (topFive) {
+          console.log(topFive);})
         .catch(err => console.error(err));
         console.log("artist top 5");
 
@@ -137,22 +140,23 @@ displayTopFive();
 
 // *** Display Top Five Songs results from Shazam Rapid API ***//
 var displayTopFive = function(topFive){
-   var topFiveArray = topFive[i].result.tracks;
-    console.log("returned artists, songs searched");
+    var topFiveArray = topFive.result.tracks[i];
+    console.log(topFive);
+  
 
 
-    // loop over Top Five data 
+   // loop over Top Five data 
     for (var i=0; i < topFiveArray.length; i++) {
 
        
-        var coverArt = topFiveArray[i].result.tracks.images.coverart;
-        var popularSongs = topFiveArray[i].result.tracks;
-       
+        var coverArt = topFiveArray.images.coverart;
+        var popularSongs = topFiveArray.title;
+       var artist = topFiveArray.subtitle;
         var trackEl = document.createElement("div");
         trackEl.className = "track";
         trackEl.innerHTML = "<p>" + popularSongs + "</p>" +
             "<p>" + coverArt + "</p>";
-            "<p>Artist: " + topFiveArray[i].result.tracks[i].artists;
+            "<p>Artist: " + artist +"</p>";
           
         topFiveContainerEl.append(trackEl);
  
@@ -160,11 +164,11 @@ var displayTopFive = function(topFive){
 
 
 
-// Display Top Five Songs in US
-var topFiveUS = document.createElement('div');
-topFiveUS.id = "topFiveUS";
-topFiveUS.innerHTML = "Similar results by Genre";
-topFiveContainerEl.append(topFiveUS);
+// // Display Top Five Songs in US
+// var topFiveUS = document.createElement('div');
+// topFiveUS.id = "topFiveUS";
+// topFiveUS.innerHTML = "Similar results by Genre" + topFiveArray[0];
+// topFiveContainerEl.append(topFiveUS);
 
 
 };
