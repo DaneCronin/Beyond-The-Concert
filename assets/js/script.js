@@ -55,7 +55,7 @@ function showmodal () {
 }
 function search () {
     let input = document.getElementById('genresearched').value 
-    if (!search || search.length < 1) {
+    if (!search || search.length === 0) {
       showmodal ()
     }
     console.log("searchForm", input);
