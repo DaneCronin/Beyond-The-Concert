@@ -198,7 +198,7 @@ button {
   padding: 1rem;
   background: var(--black);
   cursor: pointer;
-  visibility: visible;
+  visibility: hidden;
   opacity: 1;
   transition: all 0.35s ease-in;
   color: var(--Dark-Orange-Color);
