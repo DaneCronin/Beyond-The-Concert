@@ -59,7 +59,7 @@
       <div>
         <div class="searchtext">
         <h2 class="searchtext font-bold text-xl">SEARCH</h2>
-        <form id="search-form" class="container-flex">
+        <form id="searchForm" class="container-flex">
           <div class="flex mx-auto">
         <!-- editing this section out for now-
             <label for="artist" class="font-bold p-2">Artist:</label>
@@ -81,18 +81,28 @@
       </section>
 
 
+<!-- Trigger/Open The Modal -->
+  <!-- <button id="myBtn">Error</button>
+ The Modal -->
+<!-- <div id="myModal" class="modal">
+   Modal content -->
+  <!-- <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Please enter a valid genre</p>
+  </div>
 
+</div> --> 
 
 <div class="modal" id="modal1" showmodal>
-  <div class="modal-dialog">
+  <div class="modal-dialog > *">
     <header class="modal-header">
-      
-      <button class="modal-header close-modal" aria-label="close modal" data-close>
+      <button class="modal-header close-modal" data-close>x</button>
+      <button class="modal-header close-modal hidden" aria-label="close modal" data-close>
         ✕  
       </button>
     </header>
     <section class="modal-content">
-      <p><strong>Please enter a valid search criteria</strong></p>
+      <p><strong>Results are loading</strong></p>
     </section>
     <footer class="modal-footer">
     </footer>
