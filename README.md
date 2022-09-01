@@ -7,7 +7,7 @@ A web application where users can search for their favorite artist and it will d
 The purpose of this project is to help users discover new music from their favorite artist.  
 
 ## User Story                                        
-As a Concert goer, I WANT to search for new music release , SO THAT I can listen to my favourite artist.
+As a Concert goer, I WANT to search for upcoming shows that I may be interested in, SO THAT I can listen to my favourite artist.
 
 ## Technologies Used    
 * HTML                                                 
