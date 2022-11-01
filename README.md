@@ -17,7 +17,7 @@ As a Concert goer, I WANT to search for upcoming shows that I may be interested 
 * API Calls to Genius API and Shazam API
 
  ## Website
-https://danecronin.github.io/ProjectOne
+https://danecronin.github.io/Beyond-The-Concert/
 
 ## GitHub Repo
 https://github.com/DaneCronin/ProjectOne
