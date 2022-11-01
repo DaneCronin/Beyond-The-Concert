@@ -1,4 +1,4 @@
-# ProjectOne - Beyond The Concert
+#Beyond The Concert
 
 ## Concept                                        
 A web application where users can search for their favorite artist and it will display the artist name, a cover art thumbnail and song. There are also the top 5 most popular songs in the US from Shazam being displayed.
